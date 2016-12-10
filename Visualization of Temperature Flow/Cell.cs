@@ -10,14 +10,15 @@ namespace Visualization_of_Temperature_Flow
     public enum CellType { Block, HeatSource, ColdSource, NormalCell, Window}; 
     public class Cell
     {
-        double temperature;
+        double temperature; //scalar value 
         NormColor color;
         public Point position;
         public CellType type;
-        public Cell(Point position)
+        public Cell(Point position,Color color,CellType type)
         {
             this.position = position;
-            color = NormColor.NormalizeColor(Color.Green);
+            this.color = NormColor.NormalizeColor(color);
+            this.type = type;
         }
         public void Draw (int uintSize)
         {

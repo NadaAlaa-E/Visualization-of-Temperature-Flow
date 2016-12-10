@@ -120,6 +120,7 @@
             this.windowRadioBtn.TabStop = true;
             this.windowRadioBtn.Text = "Window";
             this.windowRadioBtn.UseVisualStyleBackColor = true;
+            this.windowRadioBtn.CheckedChanged += new System.EventHandler(this.windowRadioBtn_CheckedChanged);
             // 
             // normalCellRadioBtn
             // 
@@ -132,6 +133,7 @@
             this.normalCellRadioBtn.TabStop = true;
             this.normalCellRadioBtn.Text = "Normal Cell";
             this.normalCellRadioBtn.UseVisualStyleBackColor = true;
+            this.normalCellRadioBtn.CheckedChanged += new System.EventHandler(this.normalCellRadioBtn_CheckedChanged);
             // 
             // coldSourceRadioBtn
             // 
@@ -144,6 +146,7 @@
             this.coldSourceRadioBtn.TabStop = true;
             this.coldSourceRadioBtn.Text = "Cold Source";
             this.coldSourceRadioBtn.UseVisualStyleBackColor = true;
+            this.coldSourceRadioBtn.CheckedChanged += new System.EventHandler(this.coldSourceRadioBtn_CheckedChanged);
             // 
             // heatSourceRadioBtn
             // 
@@ -156,6 +159,7 @@
             this.heatSourceRadioBtn.TabStop = true;
             this.heatSourceRadioBtn.Text = "Heat Source";
             this.heatSourceRadioBtn.UseVisualStyleBackColor = true;
+            this.heatSourceRadioBtn.CheckedChanged += new System.EventHandler(this.heatSourceRadioBtn_CheckedChanged);
             // 
             // blockRadioBtn
             // 
@@ -169,6 +173,7 @@
             this.blockRadioBtn.Text = "Block";
             this.blockRadioBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.blockRadioBtn.UseVisualStyleBackColor = true;
+            this.blockRadioBtn.CheckedChanged += new System.EventHandler(this.blockRadioBtn_CheckedChanged);
             // 
             // startBtn
             // 

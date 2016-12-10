@@ -26,7 +26,10 @@ namespace Visualization_of_Temperature_Flow
             Gl.glLoadIdentity();
             //  Glu.gluPerspective(45.0f, (double)width / (double)height, 0.01f, 5000.0f);
             Glu.gluOrtho2D(0,width,height,0);
-            mesh = new Mesh(width, height, 50);
+         ////
+            mesh = new Mesh(width, height, 20);
+            mesh.targetType = CellType.NormalCell;
+            normalCellRadioBtn.Checked = true;
         }
         private void simpleOpenGlControl1_Paint(object sender, PaintEventArgs e)
         {
@@ -76,8 +79,39 @@ namespace Visualization_of_Temperature_Flow
         private void simpleOpenGlControl1_MouseDown(object sender, MouseEventArgs e)
         {
             int x = e.X, y = e.Y;
-           // c1.position = new Point(x, y);
-           //simpleOpenGlControl1.Refresh();
+            int row = y / mesh.cellsize, col = x / mesh.cellsize;
+            mesh.ChangeCell(row, col);
+            simpleOpenGlControl1.Refresh();
+        }
+
+        private void blockRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (blockRadioBtn.Checked)
+                mesh.targetType = CellType.Block;
+        }
+
+        private void heatSourceRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (heatSourceRadioBtn.Checked)
+            mesh.targetType = CellType.HeatSource;
+        }
+
+        private void coldSourceRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (coldSourceRadioBtn.Checked)
+                mesh.targetType = CellType.ColdSource;
+        }
+
+        private void normalCellRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (normalCellRadioBtn.Checked)
+                mesh.targetType = CellType.NormalCell;
+        }
+
+        private void windowRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (windowRadioBtn.Checked)
+                mesh.targetType = CellType.Window;
         }
 
         }
