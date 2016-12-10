@@ -24,6 +24,14 @@ namespace Visualization_of_Temperature_Flow
             get { return b; }
             set { if (value >= 0 && value <= 1) b = value; }
         }
+       static public NormColor NormalizeColor(Color color)
+        {
+            NormColor normColor = new NormColor();
+            normColor.R = (double)color.R / 255.0;
+            normColor.G = (double)color.G / 255.0;
+            normColor.B = (double)color.B / 255.0;
+            return normColor;
+        }
     }
     public enum Mapping_Mode { Discrete, Continuous }
    

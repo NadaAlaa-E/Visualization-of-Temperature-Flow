@@ -56,10 +56,11 @@
             this.simpleOpenGlControl1.Location = new System.Drawing.Point(6, 6);
             this.simpleOpenGlControl1.Margin = new System.Windows.Forms.Padding(2);
             this.simpleOpenGlControl1.Name = "simpleOpenGlControl1";
-            this.simpleOpenGlControl1.Size = new System.Drawing.Size(692, 526);
+            this.simpleOpenGlControl1.Size = new System.Drawing.Size(800, 606);
             this.simpleOpenGlControl1.StencilBits = ((byte)(0));
             this.simpleOpenGlControl1.TabIndex = 0;
             this.simpleOpenGlControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.simpleOpenGlControl1_Paint);
+            this.simpleOpenGlControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.simpleOpenGlControl1_MouseDown);
             // 
             // panelControl
             // 
@@ -71,7 +72,7 @@
             this.panelControl.Controls.Add(this.coldSourceRadioBtn);
             this.panelControl.Controls.Add(this.heatSourceRadioBtn);
             this.panelControl.Controls.Add(this.blockRadioBtn);
-            this.panelControl.Location = new System.Drawing.Point(710, 11);
+            this.panelControl.Location = new System.Drawing.Point(823, 11);
             this.panelControl.Margin = new System.Windows.Forms.Padding(2);
             this.panelControl.Name = "panelControl";
             this.panelControl.Padding = new System.Windows.Forms.Padding(2);
@@ -135,7 +136,7 @@
             // coldSourceRadioBtn
             // 
             this.coldSourceRadioBtn.AutoSize = true;
-            this.coldSourceRadioBtn.Location = new System.Drawing.Point(3, 67);
+            this.coldSourceRadioBtn.Location = new System.Drawing.Point(5, 69);
             this.coldSourceRadioBtn.Margin = new System.Windows.Forms.Padding(2);
             this.coldSourceRadioBtn.Name = "coldSourceRadioBtn";
             this.coldSourceRadioBtn.Size = new System.Drawing.Size(82, 17);
@@ -171,7 +172,7 @@
             // 
             // startBtn
             // 
-            this.startBtn.Location = new System.Drawing.Point(847, 152);
+            this.startBtn.Location = new System.Drawing.Point(960, 152);
             this.startBtn.Margin = new System.Windows.Forms.Padding(2);
             this.startBtn.Name = "startBtn";
             this.startBtn.Size = new System.Drawing.Size(64, 26);
@@ -181,7 +182,7 @@
             // 
             // colorsPanel
             // 
-            this.colorsPanel.Location = new System.Drawing.Point(713, 220);
+            this.colorsPanel.Location = new System.Drawing.Point(826, 220);
             this.colorsPanel.Name = "colorsPanel";
             this.colorsPanel.Size = new System.Drawing.Size(220, 50);
             this.colorsPanel.TabIndex = 10;
@@ -191,7 +192,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1066, 377);
+            this.ClientSize = new System.Drawing.Size(1066, 623);
             this.Controls.Add(this.colorsPanel);
             this.Controls.Add(this.panelControl);
             this.Controls.Add(this.startBtn);

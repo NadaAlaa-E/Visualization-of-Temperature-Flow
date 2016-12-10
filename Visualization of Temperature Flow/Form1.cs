@@ -13,17 +13,27 @@ namespace Visualization_of_Temperature_Flow
 {
     public partial class Form1 : Form
     {
+        int height, width;
+        Mesh mesh;
         public Form1()
         {
             InitializeComponent();
-            int height = simpleOpenGlControl1.Height;
-            int width = simpleOpenGlControl1.Width;
+            height = simpleOpenGlControl1.Height;
+            width = simpleOpenGlControl1.Width;
             simpleOpenGlControl1.InitializeContexts();
             Gl.glViewport(0, 0, width, height);
             Gl.glMatrixMode(Gl.GL_PROJECTION);
             Gl.glLoadIdentity();
             //  Glu.gluPerspective(45.0f, (double)width / (double)height, 0.01f, 5000.0f);
-            Glu.gluOrtho2D(0, 200, 0, 200);
+            Glu.gluOrtho2D(0,width,height,0);
+            mesh = new Mesh(width, height, 50);
+        }
+        private void simpleOpenGlControl1_Paint(object sender, PaintEventArgs e)
+        {
+            Gl.glClearColor(0, 0, 0, 0);
+            Gl.glClear(Gl.GL_COLOR_BUFFER_BIT | Gl.GL_DEPTH_BUFFER_BIT);
+            mesh.Draw();
+           
         }
 
         private void colorsPanel_Paint(object sender, PaintEventArgs e)
@@ -63,14 +73,11 @@ namespace Visualization_of_Temperature_Flow
             }
         }
 
-        private void simpleOpenGlControl1_Paint(object sender, PaintEventArgs e)
+        private void simpleOpenGlControl1_MouseDown(object sender, MouseEventArgs e)
         {
-            Gl.glBegin(Gl.GL_POLYGON);
-            Gl.glVertex2f(0, 0);
-            Gl.glVertex2f(0, 20);
-            Gl.glVertex2f(20, 20);
-            Gl.glVertex2f(20, 0);
-            Gl.glEnd();
+            int x = e.X, y = e.Y;
+           // c1.position = new Point(x, y);
+           //simpleOpenGlControl1.Refresh();
         }
 
         }
