@@ -24,13 +24,15 @@ namespace Visualization_of_Temperature_Flow
                 grid[i] = new Cell[cols];
                 for (int j = 0; j < cols; j++)
                 {
-                    grid[i][j] = new Cell(new Point(j * cellsize, i * cellsize), Color.Green, CellType.NormalCell);
+                    grid[i][j] = new Cell(new Point(j * cellsize, i * cellsize), CellType.NormalCell);
                 }
             }
         }
 
         public void Update()
-        { }
+        {
+            TemperatureFlow.CalculateFlow_SerialMode(ref grid);
+        }
 
         public void Draw()
         {
@@ -44,23 +46,23 @@ namespace Visualization_of_Temperature_Flow
             switch (targetType)
             {
                 case CellType.Block:
-                    grid[row][col] = new Cell(new Point(col * cellsize, row * cellsize), Color.Black, CellType.Block);
+                    grid[row][col] = new Cell(new Point(col * cellsize, row * cellsize), CellType.Block);
                     break;
 
                 case CellType.ColdSource:
-                    grid[row][col] = new Cell(new Point(col * cellsize, row * cellsize), Color.Blue, CellType.ColdSource);
+                    grid[row][col] = new Cell(new Point(col * cellsize, row * cellsize), CellType.ColdSource);
                     break;
 
                 case CellType.HeatSource:
-                    grid[row][col] = new Cell(new Point(col * cellsize, row * cellsize), Color.Red, CellType.HeatSource);
+                    grid[row][col] = new Cell(new Point(col * cellsize, row * cellsize), CellType.HeatSource);
                     break;
 
                 case CellType.NormalCell:
-                    grid[row][col] = new Cell(new Point(col * cellsize, row * cellsize), Color.Green, CellType.NormalCell);
+                    grid[row][col] = new Cell(new Point(col * cellsize, row * cellsize), CellType.NormalCell);
                     break;
 
                 case CellType.Window:
-                    grid[row][col] = new Cell(new Point(col * cellsize, row * cellsize), Color.Yellow, CellType.Window);
+                    grid[row][col] = new Cell(new Point(col * cellsize, row * cellsize), CellType.Window);
                     break;
             }
         }

@@ -15,6 +15,8 @@ namespace Visualization_of_Temperature_Flow
     {
         int height, width;
         Mesh mesh;
+        private BackgroundWorker _worker = null;
+
         public Form1()
         {
             InitializeComponent();
@@ -26,9 +28,13 @@ namespace Visualization_of_Temperature_Flow
             Gl.glLoadIdentity();
             Glu.gluOrtho2D(0, width, height, 0);
 
+            Color_Mapper.minValue = 0;
+            Color_Mapper.maxValue = 100;
+
             mesh = new Mesh(width, height, 20);
             mesh.targetType = CellType.NormalCell;
             normalCellRadioBtn.Checked = true;
+
         }
         private void simpleOpenGlControl1_Paint(object sender, PaintEventArgs e)
         {
@@ -114,7 +120,22 @@ namespace Visualization_of_Temperature_Flow
 
         private void startBtn_Click(object sender, EventArgs e)
         {
+            _worker = new BackgroundWorker();
+            _worker.WorkerSupportsCancellation = true;
 
+            _worker.DoWork += new DoWorkEventHandler((state, args) =>
+            {
+                do
+                {
+                    if (_worker.CancellationPending)
+                        break;
+                    mesh.Update();
+                    simpleOpenGlControl1.Invalidate();
+                } while (true);
+                startBtn.Enabled = true;
+            });
+            _worker.RunWorkerAsync();
+            startBtn.Enabled = false;
         }
 
     }
