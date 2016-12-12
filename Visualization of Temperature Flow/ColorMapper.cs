@@ -35,14 +35,7 @@ namespace Visualization_of_Temperature_Flow
     }
     public enum Mapping_Mode { Discrete, Continuous }
    
-    /*NormColor NormalizeColor(Color color)
-        {
-            NormColor normColor = new NormColor();
-            normColor.R = (double)color.R / 255.0;
-            normColor.G = (double)color.G / 255.0;
-            normColor.B = (double)color.B / 255.0;
-            return normColor;
-        }*/
+
     public static class Color_Mapper
     {
         public static float minValue;
