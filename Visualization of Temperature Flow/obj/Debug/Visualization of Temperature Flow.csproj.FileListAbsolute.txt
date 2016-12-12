@@ -1,23 +1,9 @@
-C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\bin\Debug\Visualization of Temperature Flow.exe.config
-C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\bin\Debug\Visualization of Temperature Flow.exe
-C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\bin\Debug\Visualization of Temperature Flow.pdb
-C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\bin\Debug\MeshLoader.dll
-C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\bin\Debug\MeshLoader.pdb
-C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\obj\Debug\Visualization_of_Temperature_Flow.Form1.resources
-C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\obj\Debug\Visualization_of_Temperature_Flow.Properties.Resources.resources
-C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\obj\Debug\Visualization of Temperature Flow.csproj.GenerateResource.Cache
-C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\obj\Debug\Visualization of Temperature Flow.exe
-C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\obj\Debug\Visualization of Temperature Flow.pdb
-<<<<<<< HEAD
 D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\bin\Debug\Visualization of Temperature Flow.exe.config
-D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\obj\Debug\Visualization of Temperature Flow.exe
-D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\obj\Debug\Visualization of Temperature Flow.pdb
-=======
-C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\obj\Debug\Visualization of Temperature Flow.csprojResolveAssemblyReference.cache
->>>>>>> 5bfdfe9c90b895176c079d539502b9f4ad38b52c
 D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\bin\Debug\Visualization of Temperature Flow.exe
 D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\bin\Debug\Visualization of Temperature Flow.pdb
-D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\obj\Debug\Visualization of Temperature Flow.csprojResolveAssemblyReference.cache
+D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\bin\Debug\Color_Mapping.dll
 D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\obj\Debug\Visualization_of_Temperature_Flow.Form1.resources
 D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\obj\Debug\Visualization_of_Temperature_Flow.Properties.Resources.resources
 D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\obj\Debug\Visualization of Temperature Flow.csproj.GenerateResource.Cache
+D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\obj\Debug\Visualization of Temperature Flow.exe
+D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\obj\Debug\Visualization of Temperature Flow.pdb

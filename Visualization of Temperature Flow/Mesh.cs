@@ -18,6 +18,7 @@ namespace Visualization_of_Temperature_Flow
             this.cellsize = cellsize;
             rows = (height / cellsize) ;
             cols = (width / cellsize) ;
+
             grid = new Cell[rows][];
             for (int i = 0; i < rows; i++)
             {
@@ -29,9 +30,9 @@ namespace Visualization_of_Temperature_Flow
             }
         }
 
-        public void Update()
+        public void Update(Mode mode)
         {
-            TemperatureFlow.CalculateFlow_SerialMode(ref grid);
+            TemperatureFlow.CalculateFlow(ref grid, mode);
         }
 
         public void Draw()

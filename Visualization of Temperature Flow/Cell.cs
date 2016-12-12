@@ -5,15 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using Tao.OpenGl;
+using Color_Mapping;
+
 namespace Visualization_of_Temperature_Flow
 {
     public enum CellType { Block, HeatSource, ColdSource, NormalCell, Window };
     public class Cell
     {
         public float temperature; //scalar value 
-        NormColor color;
         public Point position;
         public CellType type;
+        NormColor color;
+
         public Cell(Point position, CellType type)
         {
             this.position = position;
@@ -27,7 +30,7 @@ namespace Visualization_of_Temperature_Flow
         {
             if (type == CellType.Block) color = NormColor.NormalizeColor(Color.Black);
             else if (type == CellType.Window) color = NormColor.NormalizeColor(Color.Yellow);
-            else color = NormColor.NormalizeColor(Color_Mapper.ValueToColor(temperature, Mapping_Mode.Continuous));
+            else color = NormColor.NormalizeColor(Color_Mapper.ValueToColor(temperature));
             Gl.glColor3d(color.R, color.G, color.B);
             Gl.glBegin(Gl.GL_POLYGON);
             Gl.glVertex2f(position.X, position.Y);

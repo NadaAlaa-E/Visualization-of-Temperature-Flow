@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using Tao.OpenGl;
+using Color_Mapping;
 namespace Visualization_of_Temperature_Flow
 {
     public partial class Form1 : Form
@@ -19,6 +20,7 @@ namespace Visualization_of_Temperature_Flow
 
         public Form1()
         {
+           
             InitializeComponent();
             height = simpleOpenGlControl1.Height;
             width = simpleOpenGlControl1.Width;
@@ -27,14 +29,10 @@ namespace Visualization_of_Temperature_Flow
             Gl.glMatrixMode(Gl.GL_PROJECTION);
             Gl.glLoadIdentity();
             Glu.gluOrtho2D(0, width, height, 0);
-
-            Color_Mapper.minValue = 0;
-            Color_Mapper.maxValue = 100;
-
+            sideTxt.Text = "20";
             mesh = new Mesh(width, height, 20);
             mesh.targetType = CellType.NormalCell;
-            normalCellRadioBtn.Checked = true;
-
+            
         }
         private void simpleOpenGlControl1_Paint(object sender, PaintEventArgs e)
         {
@@ -43,42 +41,6 @@ namespace Visualization_of_Temperature_Flow
             mesh.Draw();
         }
 
-        private void colorsPanel_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = colorsPanel.CreateGraphics();
-            int colorArrayLength = Color_Mapper.colors.Length;
-            //////////////////////////////////////////      
-
-            if (false)// meshManager.mappingMode == Mapping_Mode.Discrete)
-            {
-                for (int i = 0; i < colorArrayLength; i++)
-                {
-                    g.FillRectangle(
-                        new SolidBrush(Color_Mapper.colors[i]),
-                        (i * colorsPanel.Width) / (colorArrayLength),
-                        0.0f,
-                        colorsPanel.Width / (colorArrayLength),
-                        colorsPanel.Height);
-                }
-                return;
-            }
-            for (int i = 0; i < colorArrayLength - 1; i++)
-            {
-                LinearGradientBrush b = new LinearGradientBrush(
-                    new Rectangle(0, 0, colorsPanel.Width / (colorArrayLength - 1), colorsPanel.Height),
-                    Color_Mapper.colors[i],
-                    Color_Mapper.colors[i + 1],
-                    LinearGradientMode.Horizontal
-                    );
-
-                g.FillRectangle(
-                    b,
-                    (i * colorsPanel.Width) / (colorArrayLength - 1) + 1,
-                    0.0f,
-                    colorsPanel.Width / (colorArrayLength - 1),
-                    colorsPanel.Height);
-            }
-        }
 
         private void simpleOpenGlControl1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -120,6 +82,9 @@ namespace Visualization_of_Temperature_Flow
 
         private void startBtn_Click(object sender, EventArgs e)
         {
+            simpleOpenGlControl1.Refresh();
+            if (startBtn.Text == "Start") startBtn.Text = "Stop";
+            else startBtn.Text = "Start";
             _worker = new BackgroundWorker();
             _worker.WorkerSupportsCancellation = true;
 
@@ -127,15 +92,34 @@ namespace Visualization_of_Temperature_Flow
             {
                 do
                 {
-                    if (_worker.CancellationPending)
+                    if (_worker.CancellationPending || startBtn.Text == "Start")
                         break;
-                    mesh.Update();
+
+                    if(parallelModeCheckBox.Checked == true)
+                        mesh.Update(Mode.Parallel);
+                    else
+                        mesh.Update(Mode.Serial);
+                    
                     simpleOpenGlControl1.Invalidate();
                 } while (true);
-                startBtn.Enabled = true;
             });
             _worker.RunWorkerAsync();
-            startBtn.Enabled = false;
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            //not a final version
+            int n;
+            bool isNumeric = int.TryParse(sideTxt.Text, out n);
+            if (!isNumeric)
+            {
+                MessageBox.Show("Value is not Numeric");
+                return;
+            }
+
+
+            simpleOpenGlControl1.Refresh();
+
         }
 
     }
