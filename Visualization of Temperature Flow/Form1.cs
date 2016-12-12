@@ -24,9 +24,8 @@ namespace Visualization_of_Temperature_Flow
             Gl.glViewport(0, 0, width, height);
             Gl.glMatrixMode(Gl.GL_PROJECTION);
             Gl.glLoadIdentity();
-            //  Glu.gluPerspective(45.0f, (double)width / (double)height, 0.01f, 5000.0f);
-            Glu.gluOrtho2D(0,width,height,0);
-         ////
+            Glu.gluOrtho2D(0, width, height, 0);
+
             mesh = new Mesh(width, height, 20);
             mesh.targetType = CellType.NormalCell;
             normalCellRadioBtn.Checked = true;
@@ -36,7 +35,6 @@ namespace Visualization_of_Temperature_Flow
             Gl.glClearColor(0, 0, 0, 0);
             Gl.glClear(Gl.GL_COLOR_BUFFER_BIT | Gl.GL_DEPTH_BUFFER_BIT);
             mesh.Draw();
-           
         }
 
         private void colorsPanel_Paint(object sender, PaintEventArgs e)
@@ -50,10 +48,10 @@ namespace Visualization_of_Temperature_Flow
                 for (int i = 0; i < colorArrayLength; i++)
                 {
                     g.FillRectangle(
-                        new SolidBrush(Color_Mapper.colors[i]), 
-                        (i * colorsPanel.Width) / (colorArrayLength), 
-                        0.0f, 
-                        colorsPanel.Width / (colorArrayLength), 
+                        new SolidBrush(Color_Mapper.colors[i]),
+                        (i * colorsPanel.Width) / (colorArrayLength),
+                        0.0f,
+                        colorsPanel.Width / (colorArrayLength),
                         colorsPanel.Height);
                 }
                 return;
@@ -62,7 +60,7 @@ namespace Visualization_of_Temperature_Flow
             {
                 LinearGradientBrush b = new LinearGradientBrush(
                     new Rectangle(0, 0, colorsPanel.Width / (colorArrayLength - 1), colorsPanel.Height),
-                    Color_Mapper.colors[i], 
+                    Color_Mapper.colors[i],
                     Color_Mapper.colors[i + 1],
                     LinearGradientMode.Horizontal
                     );
@@ -70,8 +68,8 @@ namespace Visualization_of_Temperature_Flow
                 g.FillRectangle(
                     b,
                     (i * colorsPanel.Width) / (colorArrayLength - 1) + 1,
-                    0.0f, 
-                    colorsPanel.Width / (colorArrayLength - 1), 
+                    0.0f,
+                    colorsPanel.Width / (colorArrayLength - 1),
                     colorsPanel.Height);
             }
         }
@@ -114,6 +112,10 @@ namespace Visualization_of_Temperature_Flow
                 mesh.targetType = CellType.Window;
         }
 
-        }
-    }
+        private void startBtn_Click(object sender, EventArgs e)
+        {
 
+        }
+
+    }
+}
