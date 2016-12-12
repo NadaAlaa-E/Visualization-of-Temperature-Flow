@@ -17,7 +17,7 @@ namespace Visualization_of_Temperature_Flow
             {
                 for (int j = 0; j < M; j++)
                 {
-                    if (grid[i][j].type != CellType.NormalCell) continue; 
+                    if (grid[i][j].type != CellType.NormalCell) continue;
                     float newVal = grid[i][j].temperature;
                     int num_Neighbours = 1;
                     for (int k = 0; k < dirX.Length; k++)

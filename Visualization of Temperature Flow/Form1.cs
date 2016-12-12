@@ -33,8 +33,6 @@ namespace Visualization_of_Temperature_Flow
 
             mesh = new Mesh(width, height, 20);
             mesh.targetType = CellType.NormalCell;
-            normalCellRadioBtn.Checked = true;
-
         }
         private void simpleOpenGlControl1_Paint(object sender, PaintEventArgs e)
         {
