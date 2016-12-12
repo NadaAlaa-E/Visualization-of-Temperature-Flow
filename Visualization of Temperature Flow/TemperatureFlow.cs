@@ -17,6 +17,7 @@ namespace Visualization_of_Temperature_Flow
 
         public static void CalculateFlow_SerialMode(ref Cell[][] grid)
         {
+            int y = 10;
             int[] dirX = { 0, 0, 1, 1, 1, -1, -1, -1 };
             int[] dirY = { 1, -1, 0, 1, -1, 0, 1, -1 };
             int N = grid.Length, M = grid[0].Length;
@@ -42,6 +43,7 @@ namespace Visualization_of_Temperature_Flow
                     grid[i][j].temperature = newVal / num_Neighbours;
                 }
             }
+            int x = 10;
         }
 
         public static void CalculateFlow_ParallelMode(ref Cell[][] grid_)

@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Color_Mapping">
+      <HintPath>.\Color_Mapping.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -101,7 +104,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cell.cs" />
-    <Compile Include="ColorMapper.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,12 +138,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\MeshLoader\MeshLoader.csproj">
-      <Project>{34db1ce6-7cbf-40c1-b985-33f1465e73c5}</Project>
-      <Name>MeshLoader</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -16,8 +16,9 @@ namespace Visualization_of_Temperature_Flow
         public Mesh(int width, int height, int cellsize)
         {
             this.cellsize = cellsize;
-            rows = (height / cellsize);
-            cols = (width / cellsize);
+            rows = (height / cellsize) ;
+            cols = (width / cellsize) ;
+
             grid = new Cell[rows][];
             for (int i = 0; i < rows; i++)
             {
