@@ -11,9 +11,10 @@ namespace Visualization_of_Temperature_Flow
     public class Cell
     {
         public float temperature; //scalar value 
-        NormColor color;
         public Point position;
         public CellType type;
+        NormColor color;
+
         public Cell(Point position, CellType type)
         {
             this.position = position;

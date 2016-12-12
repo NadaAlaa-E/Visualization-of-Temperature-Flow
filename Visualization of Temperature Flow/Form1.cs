@@ -118,6 +118,8 @@ namespace Visualization_of_Temperature_Flow
 
         private void startBtn_Click(object sender, EventArgs e)
         {
+            if (startBtn.Text == "Start") startBtn.Text = "Stop";
+            else startBtn.Text = "Start";
             _worker = new BackgroundWorker();
             _worker.WorkerSupportsCancellation = true;
 
@@ -125,15 +127,18 @@ namespace Visualization_of_Temperature_Flow
             {
                 do
                 {
-                    if (_worker.CancellationPending)
+                    if (_worker.CancellationPending || startBtn.Text == "Start")
                         break;
-                    mesh.Update();
+
+                    if(parallelModeCheckBox.Checked == true)
+                        mesh.Update(Mode.Parallel);
+                    else
+                        mesh.Update(Mode.Serial);
+                    
                     simpleOpenGlControl1.Invalidate();
                 } while (true);
-                startBtn.Enabled = true;
             });
             _worker.RunWorkerAsync();
-            startBtn.Enabled = false;
         }
 
     }
