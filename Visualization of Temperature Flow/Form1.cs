@@ -116,8 +116,9 @@ namespace Visualization_of_Temperature_Flow
                 MessageBox.Show("Value is not Numeric");
                 return;
             }
-
-
+            CellType tmp = mesh.targetType ;
+            mesh = new Mesh(width, height, n);
+            mesh.targetType = tmp;
             simpleOpenGlControl1.Refresh();
 
         }
