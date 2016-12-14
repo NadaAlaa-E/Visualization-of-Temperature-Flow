@@ -56,13 +56,13 @@
             this.simpleOpenGlControl1.ColorBits = ((byte)(32));
             this.simpleOpenGlControl1.DepthBits = ((byte)(16));
             this.simpleOpenGlControl1.Location = new System.Drawing.Point(6, 6);
-            this.simpleOpenGlControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.simpleOpenGlControl1.Margin = new System.Windows.Forms.Padding(2);
             this.simpleOpenGlControl1.Name = "simpleOpenGlControl1";
             this.simpleOpenGlControl1.Size = new System.Drawing.Size(800, 602);
             this.simpleOpenGlControl1.StencilBits = ((byte)(0));
             this.simpleOpenGlControl1.TabIndex = 0;
             this.simpleOpenGlControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.simpleOpenGlControl1_Paint);
-            this.simpleOpenGlControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.simpleOpenGlControl1_MouseDown);
+            this.simpleOpenGlControl1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.simpleOpenGlControl1_MouseMove);
             // 
             // panelControl
             // 
@@ -75,9 +75,9 @@
             this.panelControl.Controls.Add(this.heatSourceRadioBtn);
             this.panelControl.Controls.Add(this.blockRadioBtn);
             this.panelControl.Location = new System.Drawing.Point(823, 11);
-            this.panelControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelControl.Margin = new System.Windows.Forms.Padding(2);
             this.panelControl.Name = "panelControl";
-            this.panelControl.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelControl.Padding = new System.Windows.Forms.Padding(2);
             this.panelControl.Size = new System.Drawing.Size(223, 137);
             this.panelControl.TabIndex = 1;
             this.panelControl.TabStop = false;
@@ -86,7 +86,7 @@
             // updateBtn
             // 
             this.updateBtn.Location = new System.Drawing.Point(147, 54);
-            this.updateBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.updateBtn.Margin = new System.Windows.Forms.Padding(2);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(64, 26);
             this.updateBtn.TabIndex = 7;
@@ -107,7 +107,7 @@
             // sideTxt
             // 
             this.sideTxt.Location = new System.Drawing.Point(169, 33);
-            this.sideTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sideTxt.Margin = new System.Windows.Forms.Padding(2);
             this.sideTxt.Name = "sideTxt";
             this.sideTxt.Size = new System.Drawing.Size(39, 20);
             this.sideTxt.TabIndex = 5;
@@ -116,7 +116,7 @@
             // 
             this.windowRadioBtn.AutoSize = true;
             this.windowRadioBtn.Location = new System.Drawing.Point(4, 111);
-            this.windowRadioBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.windowRadioBtn.Margin = new System.Windows.Forms.Padding(2);
             this.windowRadioBtn.Name = "windowRadioBtn";
             this.windowRadioBtn.Size = new System.Drawing.Size(63, 17);
             this.windowRadioBtn.TabIndex = 4;
@@ -129,7 +129,7 @@
             // 
             this.normalCellRadioBtn.AutoSize = true;
             this.normalCellRadioBtn.Location = new System.Drawing.Point(4, 92);
-            this.normalCellRadioBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.normalCellRadioBtn.Margin = new System.Windows.Forms.Padding(2);
             this.normalCellRadioBtn.Name = "normalCellRadioBtn";
             this.normalCellRadioBtn.Size = new System.Drawing.Size(78, 17);
             this.normalCellRadioBtn.TabIndex = 3;
@@ -142,7 +142,7 @@
             // 
             this.coldSourceRadioBtn.AutoSize = true;
             this.coldSourceRadioBtn.Location = new System.Drawing.Point(4, 73);
-            this.coldSourceRadioBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.coldSourceRadioBtn.Margin = new System.Windows.Forms.Padding(2);
             this.coldSourceRadioBtn.Name = "coldSourceRadioBtn";
             this.coldSourceRadioBtn.Size = new System.Drawing.Size(82, 17);
             this.coldSourceRadioBtn.TabIndex = 2;
@@ -155,7 +155,7 @@
             // 
             this.heatSourceRadioBtn.AutoSize = true;
             this.heatSourceRadioBtn.Location = new System.Drawing.Point(4, 54);
-            this.heatSourceRadioBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.heatSourceRadioBtn.Margin = new System.Windows.Forms.Padding(2);
             this.heatSourceRadioBtn.Name = "heatSourceRadioBtn";
             this.heatSourceRadioBtn.Size = new System.Drawing.Size(84, 17);
             this.heatSourceRadioBtn.TabIndex = 1;
@@ -168,7 +168,7 @@
             // 
             this.blockRadioBtn.AutoSize = true;
             this.blockRadioBtn.Location = new System.Drawing.Point(4, 34);
-            this.blockRadioBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.blockRadioBtn.Margin = new System.Windows.Forms.Padding(2);
             this.blockRadioBtn.Name = "blockRadioBtn";
             this.blockRadioBtn.Size = new System.Drawing.Size(49, 17);
             this.blockRadioBtn.TabIndex = 0;
@@ -181,7 +181,7 @@
             // startBtn
             // 
             this.startBtn.Location = new System.Drawing.Point(970, 152);
-            this.startBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.startBtn.Margin = new System.Windows.Forms.Padding(2);
             this.startBtn.Name = "startBtn";
             this.startBtn.Size = new System.Drawing.Size(64, 26);
             this.startBtn.TabIndex = 6;
@@ -193,7 +193,7 @@
             // 
             this.parallelModeCheckBox.AutoSize = true;
             this.parallelModeCheckBox.Location = new System.Drawing.Point(827, 190);
-            this.parallelModeCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.parallelModeCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.parallelModeCheckBox.Name = "parallelModeCheckBox";
             this.parallelModeCheckBox.Size = new System.Drawing.Size(135, 17);
             this.parallelModeCheckBox.TabIndex = 11;
@@ -218,7 +218,7 @@
             this.Controls.Add(this.panelControl);
             this.Controls.Add(this.startBtn);
             this.Controls.Add(this.simpleOpenGlControl1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.panelControl.ResumeLayout(false);

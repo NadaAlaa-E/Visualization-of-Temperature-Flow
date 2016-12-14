@@ -42,14 +42,7 @@ namespace Visualization_of_Temperature_Flow
         }
 
 
-        private void simpleOpenGlControl1_MouseDown(object sender, MouseEventArgs e)
-        {
-            int x = e.X, y = e.Y;
-            int row = y / mesh.cellsize, col = x / mesh.cellsize;
-            mesh.ChangeCell(row, col);
-            simpleOpenGlControl1.Refresh();
-        }
-
+      
         private void blockRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
             if (blockRadioBtn.Checked)
@@ -121,6 +114,17 @@ namespace Visualization_of_Temperature_Flow
             mesh.targetType = tmp;
             simpleOpenGlControl1.Refresh();
 
+        }
+
+        private void simpleOpenGlControl1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                int x = e.X, y = e.Y;
+                int row = y / mesh.cellsize, col = x / mesh.cellsize;
+                mesh.ChangeCell(row, col);
+                simpleOpenGlControl1.Refresh();
+            }
         }
 
     }
