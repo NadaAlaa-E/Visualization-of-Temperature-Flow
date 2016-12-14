@@ -16,8 +16,9 @@ namespace Visualization_of_Temperature_Flow
     public partial class Form1 : Form
     {
         int height, width;
+        BackgroundWorker _worker = null;
         Mesh mesh;
-        private BackgroundWorker _worker = null;
+        Mode mode;
 
         public Form1()
         {
@@ -30,6 +31,7 @@ namespace Visualization_of_Temperature_Flow
             Gl.glLoadIdentity();
             Glu.gluOrtho2D(0, width, height, 0);
             sideTxt.Text = "20";
+            mode = Mode.Serial;
             mesh = new Mesh(width, height, 20);
             mesh.targetType = CellType.NormalCell;
         }
@@ -86,19 +88,11 @@ namespace Visualization_of_Temperature_Flow
                     if (_worker.CancellationPending || startBtn.Text == "Start")
                         break;
 
-                    UpdateMeshValues();
+                    mesh.Update(mode);
                     simpleOpenGlControl1.Invalidate();
                 } while (true);
             });
             _worker.RunWorkerAsync();
-        }
-
-        private void UpdateMeshValues()
-        {
-            if (parallelModeCheckBox.Checked == true)
-                mesh.Update(Mode.Parallel);
-            else
-                mesh.Update(Mode.Serial);
         }
 
         private void updateBtn_Click(object sender, EventArgs e)
@@ -128,6 +122,12 @@ namespace Visualization_of_Temperature_Flow
                 mesh.ChangeCell(row, col);
                 simpleOpenGlControl1.Refresh();
             }
+        }
+
+        private void parallelModeCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (parallelModeCheckBox.Checked == true) mode = Mode.Parallel;
+            else mode = Mode.Serial;
         }
     }
 }
