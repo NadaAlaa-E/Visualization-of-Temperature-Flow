@@ -8,3 +8,13 @@ D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\ob
 D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\obj\Debug\Visualization of Temperature Flow.exe
 D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\obj\Debug\Visualization of Temperature Flow.pdb
 D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\obj\Debug\Visualization of Temperature Flow.csprojResolveAssemblyReference.cache
+C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\bin\Debug\Visualization of Temperature Flow.exe.config
+C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\obj\Debug\Visualization of Temperature Flow.exe
+C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\obj\Debug\Visualization of Temperature Flow.pdb
+C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\bin\Debug\Visualization of Temperature Flow.exe
+C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\bin\Debug\Visualization of Temperature Flow.pdb
+C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\bin\Debug\Color_Mapping.dll
+C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\obj\Debug\Visualization of Temperature Flow.csprojResolveAssemblyReference.cache
+C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\obj\Debug\Visualization_of_Temperature_Flow.Form1.resources
+C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\obj\Debug\Visualization_of_Temperature_Flow.Properties.Resources.resources
+C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Visualization of Temperature Flow\obj\Debug\Visualization of Temperature Flow.csproj.GenerateResource.Cache

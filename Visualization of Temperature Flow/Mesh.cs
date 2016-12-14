@@ -11,13 +11,13 @@ namespace Visualization_of_Temperature_Flow
         Cell[][] grid;
         public int cellsize;
         public CellType targetType;
-        int rows, cols;
+        public int rows, cols;
 
         public Mesh(int width, int height, int cellsize)
         {
             this.cellsize = cellsize;
-            rows = (height / cellsize) ;
-            cols = (width / cellsize) ;
+            rows = (height / cellsize);
+            cols = (width / cellsize);
 
             grid = new Cell[rows][];
             for (int i = 0; i < rows; i++)
@@ -38,8 +38,12 @@ namespace Visualization_of_Temperature_Flow
         public void Draw()
         {
             for (int i = 0; i < rows; i++)
+            {
                 for (int j = 0; j < cols; j++)
+                {
                     grid[i][j].Draw(cellsize);
+                }
+            }
         }
 
         public void ChangeCell(int row, int col)
