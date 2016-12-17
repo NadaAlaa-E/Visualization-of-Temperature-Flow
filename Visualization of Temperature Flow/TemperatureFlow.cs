@@ -9,47 +9,56 @@ namespace Visualization_of_Temperature_Flow
     public enum Mode { Parallel, Serial };
     class TemperatureFlow
     {
-        public static void CalculateFlow(ref Cell[][] grid, Mode mode)
+        public static Cell[][] CalculateFlow(Cell[][] grid, Mode mode)
         {
-            if (mode == Mode.Parallel) CalculateFlow_ParallelMode(grid);
-            else if (mode == Mode.Serial) CalculateFlow_SerialMode(grid);
+            if (mode == Mode.Parallel) return CalculateFlow_ParallelMode(grid);
+            else return CalculateFlow_SerialMode(grid);
         }
 
-        public static void CalculateFlow_SerialMode(Cell[][] grid)
+        public static Cell[][] CalculateFlow_SerialMode(Cell[][] grid)
         {
             int[] dirX = { 0, 0, 1, 1, 1, -1, -1, -1 };
             int[] dirY = { 1, -1, 0, 1, -1, 0, 1, -1 };
             int N = grid.Length, M = grid[0].Length;
+            Cell[][] newGrid = new Cell[N][];
+
             for (int i = 0; i < N; i++)
             {
+                newGrid[i] = new Cell[M];
                 for (int j = 0; j < M; j++)
                 {
-                    UpdateCell(ref grid, i, j, N, M);
+                    newGrid[i][j] = UpdateCell(grid, i, j, N, M);
                 }
             }
+            return newGrid;
         }
 
-        public static void CalculateFlow_ParallelMode(Cell[][] grid)
+        public static Cell[][] CalculateFlow_ParallelMode(Cell[][] grid)
         {
             int N = grid.Length, M = grid[0].Length;
+            Cell[][] newGrid = new Cell[N][];
+
+            for (int i = 0; i < N; i++) newGrid[i] = new Cell[M];
 
             Parallel.For(0, N, i =>
             {
-                for (int j = 0; j < M; j++)
+                Parallel.For(0, M, j =>
                 {
-                    UpdateCell(ref grid, i, j, N, M);
-                }
+                    newGrid[i][j] = UpdateCell(grid, i, j, N, M);
+                });
             });
+            return newGrid;
         }
 
-        private static void UpdateCell(ref Cell[][] grid, int i, int j, int N, int M)
+        private static Cell UpdateCell(Cell[][] grid, int i, int j, int N, int M)
         {
             int[] dirX = { 0, 0, 1, 1, 1, -1, -1, -1 };
             int[] dirY = { 1, -1, 0, 1, -1, 0, 1, -1 };
+            Cell newCell = new Cell(grid[i][j]);
+
+            int num_Neighbours = 1;
             if (grid[i][j].type == CellType.NormalCell)
             {
-                float newVal = grid[i][j].temperature;
-                int num_Neighbours = 1;
                 for (int k = 0; k < dirX.Length; k++)
                 {
                     if (IsValid(i + dirX[k], j + dirY[k], N, M))
@@ -57,13 +66,14 @@ namespace Visualization_of_Temperature_Flow
                         Cell neighbour = grid[i + dirX[k]][j + dirY[k]];
                         if (neighbour.type != CellType.Block)
                         {
-                            newVal += neighbour.temperature;
+                            newCell.temperature += neighbour.temperature;
                             num_Neighbours++;
                         }
                     }
                 }
-                grid[i][j].temperature = newVal / num_Neighbours;
             }
+            newCell.temperature /= num_Neighbours;
+            return newCell;
         }
 
         private static bool IsValid(int x, int y, int N, int M)

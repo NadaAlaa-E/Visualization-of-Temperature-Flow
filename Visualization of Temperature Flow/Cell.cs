@@ -27,6 +27,13 @@ namespace Visualization_of_Temperature_Flow
             else if(type != CellType.Block) temperature = (Color_Mapper.minValue+Color_Mapper.maxValue) / 2;
         }
 
+        public Cell(Cell Cell_)
+        {
+            this.position = Cell_.position;
+            this.type = Cell_.type;
+            this.temperature = Cell_.temperature;
+        }
+
         public void Draw(int uintSize)
         {
             if (type == CellType.Block) color = NormColor.NormalizeColor(Color.Black);

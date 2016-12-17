@@ -32,7 +32,7 @@ namespace Visualization_of_Temperature_Flow
 
         public void Update(Mode mode)
         {
-            TemperatureFlow.CalculateFlow(ref grid, mode);
+            grid = TemperatureFlow.CalculateFlow(grid, mode);
         }
 
         public void Draw()
