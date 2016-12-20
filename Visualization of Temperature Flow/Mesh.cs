@@ -33,7 +33,6 @@ namespace Visualization_of_Temperature_Flow
         public void Update(Mode mode)
         {
             grid = TemperatureFlow.CalculateFlow(grid, mode);
-            int c = 0;
         }
 
         public void Draw()
