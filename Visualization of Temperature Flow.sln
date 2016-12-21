@@ -3,16 +3,48 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visualization of Temperature Flow", "Visualization of Temperature Flow\Visualization of Temperature Flow.csproj", "{414C5F69-8A57-48FF-89F9-618FCC1C0C1D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TemperatureFlowC++", "TemperatureFlowC++\TemperatureFlowC++.vcxproj", "{AFFBFFC9-9207-4E47-BA77-E2004DF7B5C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{414C5F69-8A57-48FF-89F9-618FCC1C0C1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{414C5F69-8A57-48FF-89F9-618FCC1C0C1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{414C5F69-8A57-48FF-89F9-618FCC1C0C1D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{414C5F69-8A57-48FF-89F9-618FCC1C0C1D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{414C5F69-8A57-48FF-89F9-618FCC1C0C1D}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{414C5F69-8A57-48FF-89F9-618FCC1C0C1D}.Debug|x86.ActiveCfg = Debug|x86
+		{414C5F69-8A57-48FF-89F9-618FCC1C0C1D}.Debug|x86.Build.0 = Debug|x86
 		{414C5F69-8A57-48FF-89F9-618FCC1C0C1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{414C5F69-8A57-48FF-89F9-618FCC1C0C1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{414C5F69-8A57-48FF-89F9-618FCC1C0C1D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{414C5F69-8A57-48FF-89F9-618FCC1C0C1D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{414C5F69-8A57-48FF-89F9-618FCC1C0C1D}.Release|Win32.ActiveCfg = Release|Any CPU
+		{414C5F69-8A57-48FF-89F9-618FCC1C0C1D}.Release|x86.ActiveCfg = Release|x86
+		{414C5F69-8A57-48FF-89F9-618FCC1C0C1D}.Release|x86.Build.0 = Release|x86
+		{AFFBFFC9-9207-4E47-BA77-E2004DF7B5C8}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{AFFBFFC9-9207-4E47-BA77-E2004DF7B5C8}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{AFFBFFC9-9207-4E47-BA77-E2004DF7B5C8}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{AFFBFFC9-9207-4E47-BA77-E2004DF7B5C8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AFFBFFC9-9207-4E47-BA77-E2004DF7B5C8}.Debug|Win32.Build.0 = Debug|Win32
+		{AFFBFFC9-9207-4E47-BA77-E2004DF7B5C8}.Debug|x86.ActiveCfg = Debug|Win32
+		{AFFBFFC9-9207-4E47-BA77-E2004DF7B5C8}.Debug|x86.Build.0 = Debug|Win32
+		{AFFBFFC9-9207-4E47-BA77-E2004DF7B5C8}.Release|Any CPU.ActiveCfg = Release|Win32
+		{AFFBFFC9-9207-4E47-BA77-E2004DF7B5C8}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{AFFBFFC9-9207-4E47-BA77-E2004DF7B5C8}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{AFFBFFC9-9207-4E47-BA77-E2004DF7B5C8}.Release|Win32.ActiveCfg = Release|Win32
+		{AFFBFFC9-9207-4E47-BA77-E2004DF7B5C8}.Release|Win32.Build.0 = Release|Win32
+		{AFFBFFC9-9207-4E47-BA77-E2004DF7B5C8}.Release|x86.ActiveCfg = Release|Win32
+		{AFFBFFC9-9207-4E47-BA77-E2004DF7B5C8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

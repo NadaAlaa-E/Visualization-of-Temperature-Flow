@@ -10,17 +10,18 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using Tao.OpenGl;
 using Color_Mapping;
+using System.Threading;
 namespace Visualization_of_Temperature_Flow
 {
     public partial class Form1 : Form
     {
         int height, width;
+        BackgroundWorker _worker = null;
         Mesh mesh;
-        private BackgroundWorker _worker = null;
+        Mode mode;
 
         public Form1()
         {
-           
             InitializeComponent();
             height = simpleOpenGlControl1.Height;
             width = simpleOpenGlControl1.Width;
@@ -30,10 +31,11 @@ namespace Visualization_of_Temperature_Flow
             Gl.glLoadIdentity();
             Glu.gluOrtho2D(0, width, height, 0);
             sideTxt.Text = "20";
+            mode = Mode.Serial;
             mesh = new Mesh(width, height, 20);
             mesh.targetType = CellType.NormalCell;
-            
         }
+
         private void simpleOpenGlControl1_Paint(object sender, PaintEventArgs e)
         {
             Gl.glClearColor(0, 0, 0, 0);
@@ -41,8 +43,6 @@ namespace Visualization_of_Temperature_Flow
             mesh.Draw();
         }
 
-
-      
         private void blockRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
             if (blockRadioBtn.Checked)
@@ -52,7 +52,7 @@ namespace Visualization_of_Temperature_Flow
         private void heatSourceRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
             if (heatSourceRadioBtn.Checked)
-            mesh.targetType = CellType.HeatSource;
+                mesh.targetType = CellType.HeatSource;
         }
 
         private void coldSourceRadioBtn_CheckedChanged(object sender, EventArgs e)
@@ -75,9 +75,9 @@ namespace Visualization_of_Temperature_Flow
 
         private void startBtn_Click(object sender, EventArgs e)
         {
-            simpleOpenGlControl1.Refresh();
             if (startBtn.Text == "Start") startBtn.Text = "Stop";
             else startBtn.Text = "Start";
+
             _worker = new BackgroundWorker();
             _worker.WorkerSupportsCancellation = true;
 
@@ -88,11 +88,7 @@ namespace Visualization_of_Temperature_Flow
                     if (_worker.CancellationPending || startBtn.Text == "Start")
                         break;
 
-                    if(parallelModeCheckBox.Checked == true)
-                        mesh.Update(Mode.Parallel);
-                    else
-                        mesh.Update(Mode.Serial);
-                    
+                    mesh.Update(mode);
                     simpleOpenGlControl1.Invalidate();
                 } while (true);
             });
@@ -109,11 +105,10 @@ namespace Visualization_of_Temperature_Flow
                 MessageBox.Show("Value is not Numeric");
                 return;
             }
-            CellType tmp = mesh.targetType ;
+            CellType tmp = mesh.targetType;
             mesh = new Mesh(width, height, n);
             mesh.targetType = tmp;
             simpleOpenGlControl1.Refresh();
-
         }
 
         private void simpleOpenGlControl1_MouseMove(object sender, MouseEventArgs e)
@@ -122,10 +117,17 @@ namespace Visualization_of_Temperature_Flow
             {
                 int x = e.X, y = e.Y;
                 int row = y / mesh.cellsize, col = x / mesh.cellsize;
+                row = Math.Max(0, Math.Min(mesh.rows - 1, row));
+                col = Math.Max(0, Math.Min(mesh.cols - 1, col));
                 mesh.ChangeCell(row, col);
                 simpleOpenGlControl1.Refresh();
             }
         }
 
+        private void parallelModeCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (parallelModeCheckBox.Checked == true) mode = Mode.Parallel;
+            else mode = Mode.Serial;
+        }
     }
 }
