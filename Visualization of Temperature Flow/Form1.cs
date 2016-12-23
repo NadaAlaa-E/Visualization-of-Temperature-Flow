@@ -23,6 +23,11 @@ namespace Visualization_of_Temperature_Flow
         public Form1()
         {
             InitializeComponent();
+            InitializeValues();
+        }
+
+        void InitializeValues()
+        {
             height = simpleOpenGlControl1.Height;
             width = simpleOpenGlControl1.Width;
             simpleOpenGlControl1.InitializeContexts();
@@ -30,10 +35,10 @@ namespace Visualization_of_Temperature_Flow
             Gl.glMatrixMode(Gl.GL_PROJECTION);
             Gl.glLoadIdentity();
             Glu.gluOrtho2D(0, width, height, 0);
-            sideTxt.Text = "20";
+
             mode = Mode.Serial;
             mesh = new Mesh(width, height, 20);
-            mesh.targetType = CellType.NormalCell;
+            mesh.targetType = CellType.Block;
         }
 
         private void simpleOpenGlControl1_Paint(object sender, PaintEventArgs e)
@@ -73,10 +78,21 @@ namespace Visualization_of_Temperature_Flow
                 mesh.targetType = CellType.Window;
         }
 
+        private bool CheckConsistency()
+        {
+            if (parallelCppModeRadioBtn.Checked == true && n_threadsTxtBox.Text.Length == 0) return false;
+            return true;
+        }
+
         private void startBtn_Click(object sender, EventArgs e)
         {
-            if (startBtn.Text == "Start") startBtn.Text = "Stop";
-            else startBtn.Text = "Start";
+            if (CheckConsistency() == false)
+            {
+                MessageBox.Show("Please Enter Number of Threads.");
+                return;
+            }
+
+            UpdateStartButton();
 
             _worker = new BackgroundWorker();
             _worker.WorkerSupportsCancellation = true;
@@ -95,18 +111,24 @@ namespace Visualization_of_Temperature_Flow
             _worker.RunWorkerAsync();
         }
 
+        private void UpdateStartButton()
+        {
+            if (startBtn.Text == "Start") startBtn.Text = "Stop";
+            else startBtn.Text = "Start";
+        }
+        
         private void updateBtn_Click(object sender, EventArgs e)
         {
-            //not a final version
-            int n;
-            bool isNumeric = int.TryParse(sideTxt.Text, out n);
+            int size = 0;
+            bool isNumeric = int.TryParse(sideTxt.Text, out size);
             if (!isNumeric)
             {
-                MessageBox.Show("Value is not Numeric");
+                MessageBox.Show("Value is not Numeric.");
                 return;
             }
+            UpdateStartButton();
             CellType tmp = mesh.targetType;
-            mesh = new Mesh(width, height, n);
+            mesh = new Mesh(width, height, size);
             mesh.targetType = tmp;
             simpleOpenGlControl1.Refresh();
         }
@@ -124,10 +146,48 @@ namespace Visualization_of_Temperature_Flow
             }
         }
 
-        private void parallelModeCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void parallelCppModeRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
-            if (parallelModeCheckBox.Checked == true) mode = Mode.Parallel;
-            else mode = Mode.Serial;
+            if (parallelCppModeRadioBtn.Checked == true)
+            {
+                threadsLabel.Visible = n_threadsTxtBox.Visible = true;
+                mode = Mode.ParallelOmp;
+            }
+        }
+
+        private void serialModeRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (serialModeRadioBtn.Checked == true)
+            {
+                threadsLabel.Visible = n_threadsTxtBox.Visible = false;
+                mode = Mode.Serial;
+            }
+        }
+
+        private void parallelCSRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (parallelCSRadioBtn.Checked == true)
+            {
+                threadsLabel.Visible = n_threadsTxtBox.Visible = false;
+                mode = Mode.Parallel;
+            }
+        }
+
+        private void n_threadsTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            if (n_threadsTxtBox.Text.Length == 0)
+                return;
+            TemperatureFlow.num_threads = int.Parse(n_threadsTxtBox.Text);
+        }
+
+        private void UpdateMinMax_Click(object sender, EventArgs e)
+        {
+            Color_Mapper.maxValue = TmpData.max;
+            Color_Mapper.minValue = TmpData.min;
+            CellType tmp = mesh.targetType;
+            int size = mesh.cellsize;
+            mesh = new Mesh(width, height, size);
+            mesh.targetType = tmp;
         }
     }
 }

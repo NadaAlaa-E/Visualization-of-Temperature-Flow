@@ -15,14 +15,16 @@ namespace Visualization_of_Temperature_Flow
         //[DllImport(@"C:\Users\islam\Documents\visual studio 2012\Projects\TemperatureFlowC++\Release\TemperatureFlowC++.dll", CallingConvention = CallingConvention.Cdecl)]
         //public static extern IntPtr return_new_cell(IntPtr tmp);
     }
-    public enum Mode { Parallel, Serial };
+    public enum Mode { Parallel, ParallelOmp, Serial };
     class TemperatureFlow
     {
+        public static int num_threads;
+
         public static Cell[][] CalculateFlow(Cell[][] grid, Mode mode)
         {
             if (mode == Mode.Parallel) return CalculateFlow_ParallelMode(grid);
-            return CalculateFlow_ParallelMode_Cpluspluse(grid);
-            //else return CalculateFlow_SerialMode(grid);
+            else if(mode == Mode.ParallelOmp) return CalculateFlow_ParallelOmpMode(grid);
+            else return CalculateFlow_SerialMode(grid);
         }
 
         public static Cell[][] CalculateFlow_SerialMode(Cell[][] grid)
@@ -60,7 +62,7 @@ namespace Visualization_of_Temperature_Flow
             return newGrid;
         }
 
-        public static Cell[][] CalculateFlow_ParallelMode_Cpluspluse(Cell[][] grid)
+        public static Cell[][] CalculateFlow_ParallelOmpMode(Cell[][] grid)
         {
             int N = grid.Length, M = grid[0].Length;
             IntPtr result = Marshal.AllocHGlobal(Marshal.SizeOf(grid[0][0]) * N * M);
@@ -73,8 +75,7 @@ namespace Visualization_of_Temperature_Flow
                     current = (IntPtr)((long)current + Marshal.SizeOf(grid[i][j]));
                 }
             }
-            int x2 = Wrap.subtract(N, M);
-            IntPtr ptr = Wrap.CalculateFlow_ParallelMode_Cplus(result, N, M, 10);
+            IntPtr ptr = Wrap.CalculateFlow_ParallelMode_Cplus(result, N, M, num_threads);
 
             Cell[][] Finalgrid = new Cell[N][];
             IntPtr current2 = ptr;
@@ -94,12 +95,12 @@ namespace Visualization_of_Temperature_Flow
             Marshal.FreeHGlobal(ptr);
             return Finalgrid;
         }
+
         private static Cell UpdateCell(Cell[][] grid, int i, int j, int N, int M)
         {
             int[] dirX = { 0, 0, 1, 1, 1, -1, -1, -1 };
             int[] dirY = { 1, -1, 0, 1, -1, 0, 1, -1 };
             Cell newCell = new Cell(grid[i][j]);
-
             int num_Neighbours = 1;
             if (grid[i][j].type == CellType.NormalCell)
             {
