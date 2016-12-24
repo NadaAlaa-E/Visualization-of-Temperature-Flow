@@ -91,6 +91,8 @@ namespace Visualization_of_Temperature_Flow
                     current2 = (IntPtr)((long)current2 + Marshal.SizeOf(Finalgrid[i][j]));
                 }
             }
+
+
             Marshal.FreeHGlobal(result);
             Marshal.FreeHGlobal(ptr);
             return Finalgrid;

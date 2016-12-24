@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using Color_Mapping;
 namespace Visualization_of_Temperature_Flow
 {
     public class Mesh
@@ -71,5 +72,21 @@ namespace Visualization_of_Temperature_Flow
                     break;
             }
         }
+        public void UpdateCurrentMesh()
+        {
+            Parallel.For(0, rows, i =>
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    float ratio = (grid[i][j].temperature - Color_Mapper.minValue) / (Color_Mapper.maxValue - Color_Mapper.minValue);
+                    grid[i][j].temperature = TmpData.min + ratio * (TmpData.max - TmpData.min);
+                }
+            });
+            Color_Mapper.maxValue = TmpData.max;
+            Color_Mapper.minValue = TmpData.min;
+        }
+
+
+      
     }
 }

@@ -93,7 +93,11 @@ namespace Visualization_of_Temperature_Flow
             }
 
             UpdateStartButton();
+            StartWorker();
+        }
 
+        private void StartWorker()
+        {
             _worker = new BackgroundWorker();
             _worker.WorkerSupportsCancellation = true;
 
@@ -116,7 +120,7 @@ namespace Visualization_of_Temperature_Flow
             if (startBtn.Text == "Start") startBtn.Text = "Stop";
             else startBtn.Text = "Start";
         }
-        
+
         private void updateBtn_Click(object sender, EventArgs e)
         {
             int size = 0;
@@ -182,12 +186,15 @@ namespace Visualization_of_Temperature_Flow
 
         private void UpdateMinMax_Click(object sender, EventArgs e)
         {
-            Color_Mapper.maxValue = TmpData.max;
-            Color_Mapper.minValue = TmpData.min;
-            CellType tmp = mesh.targetType;
-            int size = mesh.cellsize;
-            mesh = new Mesh(width, height, size);
-            mesh.targetType = tmp;
+            if (_worker != null && _worker.IsBusy)
+            {
+                _worker.CancelAsync();
+            }
+            mesh.UpdateCurrentMesh();
+            if (startBtn.Text == "Stop")
+            {
+                StartWorker();
+            }
         }
     }
 }
