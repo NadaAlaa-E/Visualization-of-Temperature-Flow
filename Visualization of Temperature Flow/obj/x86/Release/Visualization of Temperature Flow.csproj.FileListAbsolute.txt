@@ -7,3 +7,4 @@ D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\ob
 D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\obj\x86\Release\Visualization of Temperature Flow.csproj.GenerateResource.Cache
 D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\obj\x86\Release\Visualization of Temperature Flow.exe
 D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\obj\x86\Release\Visualization of Temperature Flow.pdb
+D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\obj\x86\Release\Visualization of Temperature Flow.csprojResolveAssemblyReference.cache

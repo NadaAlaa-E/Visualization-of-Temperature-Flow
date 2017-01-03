@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using Tao.OpenGl;
 using Color_Mapping;
+using System.IO;
 using System.Threading;
 namespace Visualization_of_Temperature_Flow
 {
@@ -128,9 +129,9 @@ namespace Visualization_of_Temperature_Flow
             else
                 return prev;
         }
-        Mesh CopySmallToLarg(Mesh small,int division,int size)
+        Mesh CopySmallToLarg(Mesh small, int division, int size)
         {
-            
+
             Mesh big = new Mesh(width, height, size);
             for (int i = 0; i < big.rows; i++)
                 for (int j = 0; j < big.cols; j++)
@@ -142,22 +143,22 @@ namespace Visualization_of_Temperature_Flow
                     for (int R = i * division; R < Rend; R++)
                     {
                         int Cend = j * division + division;
-                        for (int C = j*division;C < Cend;C++)
+                        for (int C = j * division; C < Cend; C++)
                         {
                             if (small.grid[R][C].type != CellType.NormalCell)
                             {
                                 notAVG = true;
                             }
-                                curr = small.grid[R][C].type;
-                                curr = Priortype(prev, curr);
-                                prev = curr;
+                            curr = small.grid[R][C].type;
+                            curr = Priortype(prev, curr);
+                            prev = curr;
                             temp += small.grid[R][C].temperature;
                         }
                     }
                     if (notAVG)
                     {
                         big.grid[i][j] = new Cell(big.grid[i][j].position, curr);
-                       
+
                     }
                     else
                     {
@@ -212,25 +213,25 @@ namespace Visualization_of_Temperature_Flow
             }
             else
             {
-                if ( prevsize % size  != 0)
+                if (prevsize % size != 0)
                 {
                     MessageBox.Show("Size is Not divisible");
                     return;
                 }
-                int division = prevsize / size ;
+                int division = prevsize / size;
                 CellType tmp = mesh.targetType;
                 mesh = CopyLargToSmall(mesh, division, size);
                 mesh.targetType = tmp;
             }
 
             UpdateStartButton();
-           // CellType tmp = mesh.targetType;
-           // mesh = new Mesh(width, height, size);
-           // mesh.targetType = tmp;
+            // CellType tmp = mesh.targetType;
+            // mesh = new Mesh(width, height, size);
+            // mesh.targetType = tmp;
             simpleOpenGlControl1.Refresh();
-       
-        
-        
+
+
+
         }
 
         private void simpleOpenGlControl1_MouseMove(object sender, MouseEventArgs e)
@@ -311,13 +312,89 @@ namespace Visualization_of_Temperature_Flow
                 msg = "Mouse Position : ";
                 cellInfoTP.AppendText(msg);
                 cellInfoTP.AppendText(Environment.NewLine);
-                msg = " X =  " + x.ToString() +",  Y =  " + y.ToString();
+                msg = " X =  " + x.ToString() + ",  Y =  " + y.ToString();
                 cellInfoTP.AppendText(msg);
-               
-               
+
+
 
                 cellInfoTP.Refresh();
             }
         }
+
+        private void LoadButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
+            if (result == DialogResult.OK)
+            {
+                string fileName = openFileDialog1.FileName;
+                List<string> map = new List<string>();
+                StreamReader sr = new StreamReader(fileName);
+                string line;
+                line = sr.ReadLine();
+                while (line != null)
+                {
+                    map.Add(line);
+                    line = sr.ReadLine();
+                }
+                sr.Close();
+                string rowline;
+                CellType tmp;
+                for (int i = 0; i < mesh.rows; i++)
+                {
+                     rowline = map[i];
+                    for (int j = 0; j < mesh.cols; j++)
+                    {
+                        int n = int.Parse(rowline[j].ToString());
+                        tmp = (CellType)n;
+                        mesh.grid[i][j] = new Cell(mesh.grid[i][j].position,tmp);
+                    }
+                }
+
+                simpleOpenGlControl1.Invalidate();
+            }
+        }
+        int count = 0;
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Text File | *.txt";
+            saveFileDialog1.Title = "Save an Image File";
+            saveFileDialog1.ShowDialog();
+
+            // If the file name is not an empty string open it for saving.
+            if (saveFileDialog1.FileName != "")
+            {
+                StreamWriter sw = new StreamWriter(saveFileDialog1.OpenFile());
+
+                //Write a line of text
+                for (int i = 0; i < mesh.rows; i++)
+                {
+                    string rowline = "";
+                    for (int j = 0; j < mesh.cols; j++)
+                    {
+                        rowline += ((int)mesh.grid[i][j].type).ToString();
+                    }
+                    sw.WriteLine(rowline);
+                }
+                //Close the file
+                sw.Close();
+            }
+        }
     }
 }
+ //switch (mesh.grid[i][j].type)
+ //                   { 
+ //                       case CellType.NormalCell:
+ //                           rowline += "N";break;
+
+ //                       case CellType.Block:
+ //                           rowline += "B"; break;
+ //                       case CellType.:
+ //                           rowline += "N"; break;
+ //                       case CellType.NormalCell:
+ //                           rowline += "N"; break;
+ //                       case CellType.NormalCell:
+ //                           rowline += "N"; break;
+ //                   }
