@@ -1,18 +1,22 @@
-﻿Build started 1/3/2017 1:55:27 AM.
-     1>Project "D:\Visualization-of-Temperature-Flow-master\TemperatureFlowC++\TemperatureFlowC++.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D TEMPERATUREFLOWC_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Release\TemperatureFlowC++.pch" /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt TemperatureFlowC++.cpp
-         TemperatureFlowC++.cpp
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Visualization-of-Temperature-Flow-master\Release\TemperatureFlowC++.dll" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Visualization-of-Temperature-Flow-master\Release\TemperatureFlowC++.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Visualization-of-Temperature-Flow-master\Release\TemperatureFlowC++.lib" /MACHINE:X86 /SAFESEH /DLL Release\dllmain.obj
-         Release\stdafx.obj
-         Release\TemperatureFlowC++.obj
-            Creating library D:\Visualization-of-Temperature-Flow-master\Release\TemperatureFlowC++.lib and object D:\Visualization-of-Temperature-Flow-master\Release\TemperatureFlowC++.exp
-         Generating code
-         Finished generating code
-         TemperatureFlowC++.vcxproj -> D:\Visualization-of-Temperature-Flow-master\Release\TemperatureFlowC++.dll
-     1>Done Building Project "D:\Visualization-of-Temperature-Flow-master\TemperatureFlowC++\TemperatureFlowC++.vcxproj" (Build target(s)).
+﻿Build started 03-Jan-17 3:14:56 AM.
+Project "C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\TemperatureFlowC++\TemperatureFlowC++.vcxproj" on node 2 (Rebuild target(s)).
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D TEMPERATUREFLOWC_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /openmp /Yc"stdafx.h" /Fp"Release\TemperatureFlowC++.pch" /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+  stdafx.cpp
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D TEMPERATUREFLOWC_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /openmp /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt dllmain.cpp
+  dllmain.cpp
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D TEMPERATUREFLOWC_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /openmp /Yu"stdafx.h" /Fp"Release\TemperatureFlowC++.pch" /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt TemperatureFlowC++.cpp
+  TemperatureFlowC++.cpp
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Release\TemperatureFlowC++.dll" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Release\TemperatureFlowC++.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Release\TemperatureFlowC++.lib" /MACHINE:X86 /SAFESEH /DLL Release\dllmain.obj
+  Release\stdafx.obj
+  Release\TemperatureFlowC++.obj
+     Creating library C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Release\TemperatureFlowC++.lib and object C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Release\TemperatureFlowC++.exp
+  Generating code
+  Finished generating code
+  TemperatureFlowC++.vcxproj -> C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\Release\TemperatureFlowC++.dll
+Done Building Project "C:\Users\nadaa\Desktop\Projects\Visualization-of-Temperature-Flow\TemperatureFlowC++\TemperatureFlowC++.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.40
+Time Elapsed 00:00:11.07

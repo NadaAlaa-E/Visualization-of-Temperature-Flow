@@ -65,10 +65,10 @@
             this.simpleOpenGlControl1.BackColor = System.Drawing.Color.Black;
             this.simpleOpenGlControl1.ColorBits = ((byte)(32));
             this.simpleOpenGlControl1.DepthBits = ((byte)(16));
-            this.simpleOpenGlControl1.Location = new System.Drawing.Point(6, 6);
-            this.simpleOpenGlControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.simpleOpenGlControl1.Location = new System.Drawing.Point(12, 12);
+            this.simpleOpenGlControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.simpleOpenGlControl1.Name = "simpleOpenGlControl1";
-            this.simpleOpenGlControl1.Size = new System.Drawing.Size(800, 602);
+            this.simpleOpenGlControl1.Size = new System.Drawing.Size(1600, 1158);
             this.simpleOpenGlControl1.StencilBits = ((byte)(0));
             this.simpleOpenGlControl1.TabIndex = 0;
             this.simpleOpenGlControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.simpleOpenGlControl1_Paint);
@@ -85,21 +85,21 @@
             this.panelControl.Controls.Add(this.coldSourceRadioBtn);
             this.panelControl.Controls.Add(this.heatSourceRadioBtn);
             this.panelControl.Controls.Add(this.blockRadioBtn);
-            this.panelControl.Location = new System.Drawing.Point(823, 11);
-            this.panelControl.Margin = new System.Windows.Forms.Padding(2);
+            this.panelControl.Location = new System.Drawing.Point(1646, 21);
+            this.panelControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelControl.Name = "panelControl";
-            this.panelControl.Padding = new System.Windows.Forms.Padding(2);
-            this.panelControl.Size = new System.Drawing.Size(248, 137);
+            this.panelControl.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelControl.Size = new System.Drawing.Size(496, 263);
             this.panelControl.TabIndex = 1;
             this.panelControl.TabStop = false;
             this.panelControl.Text = "Panel Control";
             // 
             // updateBtn
             // 
-            this.updateBtn.Location = new System.Drawing.Point(178, 54);
-            this.updateBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.updateBtn.Location = new System.Drawing.Point(356, 104);
+            this.updateBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.updateBtn.Name = "updateBtn";
-            this.updateBtn.Size = new System.Drawing.Size(64, 26);
+            this.updateBtn.Size = new System.Drawing.Size(128, 50);
             this.updateBtn.TabIndex = 7;
             this.updateBtn.Text = "Update";
             this.updateBtn.UseVisualStyleBackColor = true;
@@ -108,29 +108,29 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(165, 35);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(330, 67);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.Size = new System.Drawing.Size(61, 25);
             this.label1.TabIndex = 6;
             this.label1.Text = "Side:";
             // 
             // sideTxt
             // 
-            this.sideTxt.Location = new System.Drawing.Point(200, 32);
-            this.sideTxt.Margin = new System.Windows.Forms.Padding(2);
+            this.sideTxt.Location = new System.Drawing.Point(400, 62);
+            this.sideTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sideTxt.Name = "sideTxt";
-            this.sideTxt.Size = new System.Drawing.Size(39, 20);
+            this.sideTxt.Size = new System.Drawing.Size(74, 31);
             this.sideTxt.TabIndex = 5;
             this.sideTxt.Text = "20";
             // 
             // windowRadioBtn
             // 
             this.windowRadioBtn.AutoSize = true;
-            this.windowRadioBtn.Location = new System.Drawing.Point(4, 111);
-            this.windowRadioBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.windowRadioBtn.Location = new System.Drawing.Point(8, 213);
+            this.windowRadioBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.windowRadioBtn.Name = "windowRadioBtn";
-            this.windowRadioBtn.Size = new System.Drawing.Size(63, 17);
+            this.windowRadioBtn.Size = new System.Drawing.Size(119, 29);
             this.windowRadioBtn.TabIndex = 4;
             this.windowRadioBtn.Text = "Window";
             this.windowRadioBtn.UseVisualStyleBackColor = true;
@@ -139,10 +139,10 @@
             // normalCellRadioBtn
             // 
             this.normalCellRadioBtn.AutoSize = true;
-            this.normalCellRadioBtn.Location = new System.Drawing.Point(4, 92);
-            this.normalCellRadioBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.normalCellRadioBtn.Location = new System.Drawing.Point(8, 177);
+            this.normalCellRadioBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.normalCellRadioBtn.Name = "normalCellRadioBtn";
-            this.normalCellRadioBtn.Size = new System.Drawing.Size(78, 17);
+            this.normalCellRadioBtn.Size = new System.Drawing.Size(154, 29);
             this.normalCellRadioBtn.TabIndex = 3;
             this.normalCellRadioBtn.Text = "Normal Cell";
             this.normalCellRadioBtn.UseVisualStyleBackColor = true;
@@ -151,10 +151,10 @@
             // coldSourceRadioBtn
             // 
             this.coldSourceRadioBtn.AutoSize = true;
-            this.coldSourceRadioBtn.Location = new System.Drawing.Point(4, 73);
-            this.coldSourceRadioBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.coldSourceRadioBtn.Location = new System.Drawing.Point(8, 140);
+            this.coldSourceRadioBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.coldSourceRadioBtn.Name = "coldSourceRadioBtn";
-            this.coldSourceRadioBtn.Size = new System.Drawing.Size(82, 17);
+            this.coldSourceRadioBtn.Size = new System.Drawing.Size(161, 29);
             this.coldSourceRadioBtn.TabIndex = 2;
             this.coldSourceRadioBtn.Text = "Cold Source";
             this.coldSourceRadioBtn.UseVisualStyleBackColor = true;
@@ -163,10 +163,10 @@
             // heatSourceRadioBtn
             // 
             this.heatSourceRadioBtn.AutoSize = true;
-            this.heatSourceRadioBtn.Location = new System.Drawing.Point(4, 54);
-            this.heatSourceRadioBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.heatSourceRadioBtn.Location = new System.Drawing.Point(8, 104);
+            this.heatSourceRadioBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.heatSourceRadioBtn.Name = "heatSourceRadioBtn";
-            this.heatSourceRadioBtn.Size = new System.Drawing.Size(84, 17);
+            this.heatSourceRadioBtn.Size = new System.Drawing.Size(162, 29);
             this.heatSourceRadioBtn.TabIndex = 1;
             this.heatSourceRadioBtn.Text = "Heat Source";
             this.heatSourceRadioBtn.UseVisualStyleBackColor = true;
@@ -176,10 +176,10 @@
             // 
             this.blockRadioBtn.AutoSize = true;
             this.blockRadioBtn.Checked = true;
-            this.blockRadioBtn.Location = new System.Drawing.Point(4, 34);
-            this.blockRadioBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.blockRadioBtn.Location = new System.Drawing.Point(8, 65);
+            this.blockRadioBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.blockRadioBtn.Name = "blockRadioBtn";
-            this.blockRadioBtn.Size = new System.Drawing.Size(49, 17);
+            this.blockRadioBtn.Size = new System.Drawing.Size(96, 29);
             this.blockRadioBtn.TabIndex = 0;
             this.blockRadioBtn.TabStop = true;
             this.blockRadioBtn.Text = "Block";
@@ -189,10 +189,10 @@
             // 
             // startBtn
             // 
-            this.startBtn.Location = new System.Drawing.Point(1001, 257);
-            this.startBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.startBtn.Location = new System.Drawing.Point(2002, 494);
+            this.startBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.startBtn.Name = "startBtn";
-            this.startBtn.Size = new System.Drawing.Size(64, 26);
+            this.startBtn.Size = new System.Drawing.Size(128, 50);
             this.startBtn.TabIndex = 6;
             this.startBtn.Text = "Start";
             this.startBtn.UseVisualStyleBackColor = true;
@@ -205,21 +205,21 @@
             this.groupBox1.Controls.Add(this.parallelCSRadioBtn);
             this.groupBox1.Controls.Add(this.parallelCppModeRadioBtn);
             this.groupBox1.Controls.Add(this.serialModeRadioBtn);
-            this.groupBox1.Location = new System.Drawing.Point(823, 156);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(1646, 300);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(248, 97);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(496, 187);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Running Mode";
             // 
             // n_threadsTxtBox
             // 
-            this.n_threadsTxtBox.Location = new System.Drawing.Point(200, 45);
-            this.n_threadsTxtBox.Margin = new System.Windows.Forms.Padding(2);
+            this.n_threadsTxtBox.Location = new System.Drawing.Point(400, 87);
+            this.n_threadsTxtBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.n_threadsTxtBox.Name = "n_threadsTxtBox";
-            this.n_threadsTxtBox.Size = new System.Drawing.Size(39, 20);
+            this.n_threadsTxtBox.Size = new System.Drawing.Size(74, 31);
             this.n_threadsTxtBox.TabIndex = 8;
             this.n_threadsTxtBox.Text = "5";
             this.n_threadsTxtBox.Visible = false;
@@ -228,10 +228,10 @@
             // threadsLabel
             // 
             this.threadsLabel.AutoSize = true;
-            this.threadsLabel.Location = new System.Drawing.Point(117, 48);
-            this.threadsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.threadsLabel.Location = new System.Drawing.Point(234, 92);
+            this.threadsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.threadsLabel.Name = "threadsLabel";
-            this.threadsLabel.Size = new System.Drawing.Size(83, 13);
+            this.threadsLabel.Size = new System.Drawing.Size(160, 25);
             this.threadsLabel.TabIndex = 3;
             this.threadsLabel.Text = "No. of Threads:";
             this.threadsLabel.Visible = false;
@@ -239,10 +239,10 @@
             // parallelCSRadioBtn
             // 
             this.parallelCSRadioBtn.AutoSize = true;
-            this.parallelCSRadioBtn.Location = new System.Drawing.Point(4, 65);
-            this.parallelCSRadioBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.parallelCSRadioBtn.Location = new System.Drawing.Point(8, 125);
+            this.parallelCSRadioBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.parallelCSRadioBtn.Name = "parallelCSRadioBtn";
-            this.parallelCSRadioBtn.Size = new System.Drawing.Size(106, 17);
+            this.parallelCSRadioBtn.Size = new System.Drawing.Size(208, 29);
             this.parallelCSRadioBtn.TabIndex = 2;
             this.parallelCSRadioBtn.Text = "Parallel C# Mode";
             this.parallelCSRadioBtn.UseVisualStyleBackColor = true;
@@ -251,10 +251,10 @@
             // parallelCppModeRadioBtn
             // 
             this.parallelCppModeRadioBtn.AutoSize = true;
-            this.parallelCppModeRadioBtn.Location = new System.Drawing.Point(4, 47);
-            this.parallelCppModeRadioBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.parallelCppModeRadioBtn.Location = new System.Drawing.Point(8, 90);
+            this.parallelCppModeRadioBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.parallelCppModeRadioBtn.Name = "parallelCppModeRadioBtn";
-            this.parallelCppModeRadioBtn.Size = new System.Drawing.Size(114, 17);
+            this.parallelCppModeRadioBtn.Size = new System.Drawing.Size(220, 29);
             this.parallelCppModeRadioBtn.TabIndex = 1;
             this.parallelCppModeRadioBtn.Text = "Parallel C++ Mode";
             this.parallelCppModeRadioBtn.UseVisualStyleBackColor = true;
@@ -264,10 +264,10 @@
             // 
             this.serialModeRadioBtn.AutoSize = true;
             this.serialModeRadioBtn.Checked = true;
-            this.serialModeRadioBtn.Location = new System.Drawing.Point(4, 29);
-            this.serialModeRadioBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.serialModeRadioBtn.Location = new System.Drawing.Point(8, 56);
+            this.serialModeRadioBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.serialModeRadioBtn.Name = "serialModeRadioBtn";
-            this.serialModeRadioBtn.Size = new System.Drawing.Size(80, 17);
+            this.serialModeRadioBtn.Size = new System.Drawing.Size(158, 29);
             this.serialModeRadioBtn.TabIndex = 0;
             this.serialModeRadioBtn.TabStop = true;
             this.serialModeRadioBtn.Text = "Serial Mode";
@@ -276,9 +276,10 @@
             // 
             // UpdateMinMax
             // 
-            this.UpdateMinMax.Location = new System.Drawing.Point(972, 420);
+            this.UpdateMinMax.Location = new System.Drawing.Point(1944, 808);
+            this.UpdateMinMax.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.UpdateMinMax.Name = "UpdateMinMax";
-            this.UpdateMinMax.Size = new System.Drawing.Size(75, 23);
+            this.UpdateMinMax.Size = new System.Drawing.Size(150, 44);
             this.UpdateMinMax.TabIndex = 14;
             this.UpdateMinMax.Text = "Update";
             this.UpdateMinMax.UseVisualStyleBackColor = true;
@@ -286,44 +287,47 @@
             // 
             // colorMappingPanel1
             // 
-            this.colorMappingPanel1.Location = new System.Drawing.Point(832, 312);
-            this.colorMappingPanel1.Margin = new System.Windows.Forms.Padding(6);
+            this.colorMappingPanel1.Location = new System.Drawing.Point(1664, 600);
+            this.colorMappingPanel1.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.colorMappingPanel1.Name = "colorMappingPanel1";
-            this.colorMappingPanel1.Size = new System.Drawing.Size(233, 160);
+            this.colorMappingPanel1.Size = new System.Drawing.Size(466, 308);
             this.colorMappingPanel1.TabIndex = 12;
             // 
             // cellInfoTP
             // 
-            this.cellInfoTP.Location = new System.Drawing.Point(832, 511);
+            this.cellInfoTP.Location = new System.Drawing.Point(1664, 983);
+            this.cellInfoTP.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cellInfoTP.Multiline = true;
             this.cellInfoTP.Name = "cellInfoTP";
-            this.cellInfoTP.Size = new System.Drawing.Size(125, 66);
+            this.cellInfoTP.Size = new System.Drawing.Size(246, 123);
             this.cellInfoTP.TabIndex = 15;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(829, 495);
+            this.label2.Location = new System.Drawing.Point(1658, 952);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
+            this.label2.Size = new System.Drawing.Size(96, 25);
             this.label2.TabIndex = 16;
             this.label2.Text = "Cell Info ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(829, 591);
+            this.label3.Location = new System.Drawing.Point(1658, 1137);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 13);
+            this.label3.Size = new System.Drawing.Size(264, 25);
             this.label3.TabIndex = 17;
             this.label3.Text = "Right click to view cell info";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1075, 613);
+            this.ClientSize = new System.Drawing.Size(2150, 1179);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cellInfoTP);
@@ -333,7 +337,7 @@
             this.Controls.Add(this.panelControl);
             this.Controls.Add(this.startBtn);
             this.Controls.Add(this.simpleOpenGlControl1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Visualization of Temperature Flow";
             this.panelControl.ResumeLayout(false);
@@ -371,4 +375,3 @@
         private System.Windows.Forms.Label label3;
     }
 }
-

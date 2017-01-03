@@ -24,6 +24,7 @@ namespace Visualization_of_Temperature_Flow
         {
             InitializeComponent();
             InitializeValues();
+            FileLoader.LoadFiles();
         }
 
         void InitializeValues()
@@ -123,16 +124,16 @@ namespace Visualization_of_Temperature_Flow
 
         CellType Priortype(CellType prev, CellType cur)
         {
-            if (cur > prev)
-                return cur;
-            else
-                return prev;
+            if (cur > prev) return cur;
+            else return prev;
         }
-        Mesh CopySmallToLarg(Mesh small,int division,int size)
+
+        Mesh CopySmallToLarge(Mesh small, int division, int size)
         {
-            
+
             Mesh big = new Mesh(width, height, size);
             for (int i = 0; i < big.rows; i++)
+            {
                 for (int j = 0; j < big.cols; j++)
                 {
                     float temp = 0;
@@ -142,22 +143,21 @@ namespace Visualization_of_Temperature_Flow
                     for (int R = i * division; R < Rend; R++)
                     {
                         int Cend = j * division + division;
-                        for (int C = j*division;C < Cend;C++)
+                        for (int C = j * division; C < Cend; C++)
                         {
                             if (small.grid[R][C].type != CellType.NormalCell)
                             {
                                 notAVG = true;
                             }
-                                curr = small.grid[R][C].type;
-                                curr = Priortype(prev, curr);
-                                prev = curr;
+                            curr = small.grid[R][C].type;
+                            curr = Priortype(prev, curr);
+                            prev = curr;
                             temp += small.grid[R][C].temperature;
                         }
                     }
                     if (notAVG)
                     {
                         big.grid[i][j] = new Cell(big.grid[i][j].position, curr);
-                       
                     }
                     else
                     {
@@ -165,6 +165,7 @@ namespace Visualization_of_Temperature_Flow
                         big.grid[i][j].temperature = temp;
                     }
                 }
+            }
             return big;
         }
         Mesh CopyLargToSmall(Mesh big, int division, int size)
@@ -207,30 +208,26 @@ namespace Visualization_of_Temperature_Flow
                 }
                 int division = size / prevsize;
                 CellType tmp = mesh.targetType;
-                mesh = CopySmallToLarg(mesh, division, size);
+                mesh = CopySmallToLarge(mesh, division, size);
                 mesh.targetType = tmp;
             }
             else
             {
-                if ( prevsize % size  != 0)
+                if (prevsize % size != 0)
                 {
                     MessageBox.Show("Size is Not divisible");
                     return;
                 }
-                int division = prevsize / size ;
+                int division = prevsize / size;
                 CellType tmp = mesh.targetType;
                 mesh = CopyLargToSmall(mesh, division, size);
                 mesh.targetType = tmp;
             }
-
-            UpdateStartButton();
-           // CellType tmp = mesh.targetType;
-           // mesh = new Mesh(width, height, size);
-           // mesh.targetType = tmp;
+            if (startBtn.Text == "Stop") startBtn.Text = "Start";
+            // CellType tmp = mesh.targetType;
+            // mesh = new Mesh(width, height, size);
+            // mesh.targetType = tmp;
             simpleOpenGlControl1.Refresh();
-       
-        
-        
         }
 
         private void simpleOpenGlControl1_MouseMove(object sender, MouseEventArgs e)
@@ -244,7 +241,6 @@ namespace Visualization_of_Temperature_Flow
                 mesh.ChangeCell(row, col);
                 simpleOpenGlControl1.Refresh();
             }
-
         }
 
         private void parallelCppModeRadioBtn_CheckedChanged(object sender, EventArgs e)
@@ -311,10 +307,8 @@ namespace Visualization_of_Temperature_Flow
                 msg = "Mouse Position : ";
                 cellInfoTP.AppendText(msg);
                 cellInfoTP.AppendText(Environment.NewLine);
-                msg = " X =  " + x.ToString() +",  Y =  " + y.ToString();
+                msg = " X =  " + x.ToString() + ",  Y =  " + y.ToString();
                 cellInfoTP.AppendText(msg);
-               
-               
 
                 cellInfoTP.Refresh();
             }

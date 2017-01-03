@@ -22,7 +22,7 @@ namespace Visualization_of_Temperature_Flow
         }
     }
 
-    public enum CellType {  NormalCell, Block, Window, ColdSource,HeatSource };
+    public enum CellType { NormalCell, Block, Window, ColdSource, HeatSource };
     [StructLayout(LayoutKind.Sequential)]
     public class Cell
     {
@@ -54,7 +54,7 @@ namespace Visualization_of_Temperature_Flow
             if (type == CellType.Block) color = NormColor.NormalizeColor(Color.Black);
             else if (type == CellType.Window) color = NormColor.NormalizeColor(Color.Yellow);
             else color = NormColor.NormalizeColor(Color_Mapper.ValueToColor(temperature));
-           
+
             Gl.glColor3d(color.R, color.G, color.B);
             Gl.glBegin(Gl.GL_POLYGON);
             Gl.glVertex2f(position.X, position.Y);
@@ -63,6 +63,5 @@ namespace Visualization_of_Temperature_Flow
             Gl.glVertex2f(position.X + uintSize, position.Y);
             Gl.glEnd();
         }
-
     }
 }
