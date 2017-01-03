@@ -25,6 +25,7 @@ namespace Visualization_of_Temperature_Flow
         {
             InitializeComponent();
             InitializeValues();
+            FileLoader.LoadFiles();
         }
 
         void InitializeValues()
@@ -124,16 +125,17 @@ namespace Visualization_of_Temperature_Flow
 
         CellType Priortype(CellType prev, CellType cur)
         {
-            if (cur > prev)
-                return cur;
-            else
-                return prev;
+            if (cur > prev) return cur;
+            else return prev;
         }
-        Mesh CopySmallToLarg(Mesh small, int division, int size)
+
+
+        Mesh CopySmallToLarge(Mesh small, int division, int size)
         {
 
             Mesh big = new Mesh(width, height, size);
             for (int i = 0; i < big.rows; i++)
+            {
                 for (int j = 0; j < big.cols; j++)
                 {
                     float temp = 0;
@@ -158,7 +160,6 @@ namespace Visualization_of_Temperature_Flow
                     if (notAVG)
                     {
                         big.grid[i][j] = new Cell(big.grid[i][j].position, curr);
-
                     }
                     else
                     {
@@ -166,6 +167,7 @@ namespace Visualization_of_Temperature_Flow
                         big.grid[i][j].temperature = temp;
                     }
                 }
+            }
             return big;
         }
         Mesh CopyLargToSmall(Mesh big, int division, int size)
@@ -208,7 +210,7 @@ namespace Visualization_of_Temperature_Flow
                 }
                 int division = size / prevsize;
                 CellType tmp = mesh.targetType;
-                mesh = CopySmallToLarg(mesh, division, size);
+                mesh = CopySmallToLarge(mesh, division, size);
                 mesh.targetType = tmp;
             }
             else
@@ -225,11 +227,13 @@ namespace Visualization_of_Temperature_Flow
             }
 
             UpdateStartButton();
+
+            if (startBtn.Text == "Stop") startBtn.Text = "Start";
+
             // CellType tmp = mesh.targetType;
             // mesh = new Mesh(width, height, size);
             // mesh.targetType = tmp;
             simpleOpenGlControl1.Refresh();
-
 
 
         }
@@ -245,7 +249,6 @@ namespace Visualization_of_Temperature_Flow
                 mesh.ChangeCell(row, col);
                 simpleOpenGlControl1.Refresh();
             }
-
         }
 
         private void parallelCppModeRadioBtn_CheckedChanged(object sender, EventArgs e)
@@ -315,8 +318,6 @@ namespace Visualization_of_Temperature_Flow
                 msg = " X =  " + x.ToString() + ",  Y =  " + y.ToString();
                 cellInfoTP.AppendText(msg);
 
-
-
                 cellInfoTP.Refresh();
             }
         }
@@ -342,12 +343,12 @@ namespace Visualization_of_Temperature_Flow
                 CellType tmp;
                 for (int i = 0; i < mesh.rows; i++)
                 {
-                     rowline = map[i];
+                    rowline = map[i];
                     for (int j = 0; j < mesh.cols; j++)
                     {
                         int n = int.Parse(rowline[j].ToString());
                         tmp = (CellType)n;
-                        mesh.grid[i][j] = new Cell(mesh.grid[i][j].position,tmp);
+                        mesh.grid[i][j] = new Cell(mesh.grid[i][j].position, tmp);
                     }
                 }
 
@@ -382,19 +383,31 @@ namespace Visualization_of_Temperature_Flow
                 sw.Close();
             }
         }
+
+        private void Rest_Click(object sender, EventArgs e)
+        {
+            UpdateStartButton();
+
+            if (startBtn.Text == "Stop") startBtn.Text = "Start";
+
+            CellType tmp = mesh.targetType;
+            mesh = new Mesh(width, height, mesh.cellsize);
+             mesh.targetType = tmp;
+            simpleOpenGlControl1.Refresh();
+        }
     }
 }
- //switch (mesh.grid[i][j].type)
- //                   { 
- //                       case CellType.NormalCell:
- //                           rowline += "N";break;
+//switch (mesh.grid[i][j].type)
+//                   { 
+//                       case CellType.NormalCell:
+//                           rowline += "N";break;
 
- //                       case CellType.Block:
- //                           rowline += "B"; break;
- //                       case CellType.:
- //                           rowline += "N"; break;
- //                       case CellType.NormalCell:
- //                           rowline += "N"; break;
- //                       case CellType.NormalCell:
- //                           rowline += "N"; break;
- //                   }
+//                       case CellType.Block:
+//                           rowline += "B"; break;
+//                       case CellType.:
+//                           rowline += "N"; break;
+//                       case CellType.NormalCell:
+//                           rowline += "N"; break;
+//                       case CellType.NormalCell:
+//                           rowline += "N"; break;
+//                   }

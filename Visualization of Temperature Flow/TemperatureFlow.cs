@@ -8,12 +8,10 @@ namespace Visualization_of_Temperature_Flow
 {
     public class Wrap
     {
-        [DllImport(@"D:\Visualization-of-Temperature-Flow-master\Release\TemperatureFlowC++.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(@"C:\VisualizationFiles\TemperatureFlowC++.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern int subtract(int N, int M);
-        [DllImport(@"D:\Visualization-of-Temperature-Flow-master\Release\TemperatureFlowC++.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(@"C:\VisualizationFiles\TemperatureFlowC++.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr CalculateFlow_ParallelMode_Cplus(IntPtr grid, int N, int M, int n_threads);
-        //[DllImport(@"C:\Users\islam\Documents\visual studio 2012\Projects\TemperatureFlowC++\Release\TemperatureFlowC++.dll", CallingConvention = CallingConvention.Cdecl)]
-        //public static extern IntPtr return_new_cell(IntPtr tmp);
     }
     public enum Mode { Parallel, ParallelOmp, Serial };
     class TemperatureFlow
@@ -23,7 +21,7 @@ namespace Visualization_of_Temperature_Flow
         public static Cell[][] CalculateFlow(Cell[][] grid, Mode mode)
         {
             if (mode == Mode.Parallel) return CalculateFlow_ParallelMode(grid);
-            else if(mode == Mode.ParallelOmp) return CalculateFlow_ParallelOmpMode(grid);
+            else if (mode == Mode.ParallelOmp) return CalculateFlow_ParallelOmpMode(grid);
             else return CalculateFlow_SerialMode(grid);
         }
 
@@ -92,8 +90,6 @@ namespace Visualization_of_Temperature_Flow
                     current2 = (IntPtr)((long)current2 + Marshal.SizeOf(Finalgrid[i][j]));
                 }
             }
-
-
             Marshal.FreeHGlobal(result);
             Marshal.FreeHGlobal(ptr);
             return Finalgrid;
