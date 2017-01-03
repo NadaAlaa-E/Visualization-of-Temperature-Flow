@@ -121,8 +121,74 @@ namespace Visualization_of_Temperature_Flow
             else startBtn.Text = "Start";
         }
 
+        CellType Priortype(CellType prev, CellType cur)
+        {
+            if (cur > prev)
+                return cur;
+            else
+                return prev;
+        }
+        Mesh CopySmallToLarg(Mesh small,int division,int size)
+        {
+            
+            Mesh big = new Mesh(width, height, size);
+            for (int i = 0; i < big.rows; i++)
+                for (int j = 0; j < big.cols; j++)
+                {
+                    float temp = 0;
+                    int Rend = i * division + division;
+                    bool notAVG = false;
+                    CellType prev = CellType.NormalCell, curr = CellType.NormalCell;
+                    for (int R = i * division; R < Rend; R++)
+                    {
+                        int Cend = j * division + division;
+                        for (int C = j*division;C < Cend;C++)
+                        {
+                            if (small.grid[R][C].type != CellType.NormalCell)
+                            {
+                                notAVG = true;
+                            }
+                                curr = small.grid[R][C].type;
+                                curr = Priortype(prev, curr);
+                                prev = curr;
+                            temp += small.grid[R][C].temperature;
+                        }
+                    }
+                    if (notAVG)
+                    {
+                        big.grid[i][j] = new Cell(big.grid[i][j].position, curr);
+                       
+                    }
+                    else
+                    {
+                        temp /= (division * division);
+                        big.grid[i][j].temperature = temp;
+                    }
+                }
+            return big;
+        }
+        Mesh CopyLargToSmall(Mesh big, int division, int size)
+        {
+            Mesh small = new Mesh(width, height, size);
+            for (int i = 0; i < big.rows; i++)
+                for (int j = 0; j < big.cols; j++)
+                {
+                    int Rend = i * division + division;
+                    for (int R = i * division; R < Rend; R++)
+                    {
+                        int Cend = j * division + division;
+                        for (int C = j * division; C < Cend; C++)
+                        {
+                            small.grid[R][C].type = big.grid[i][j].type;
+                            small.grid[R][C].temperature = big.grid[i][j].temperature;
+                        }
+                    }
+                }
+            return small;
+        }
         private void updateBtn_Click(object sender, EventArgs e)
         {
+
             int size = 0;
             bool isNumeric = int.TryParse(sideTxt.Text, out size);
             if (!isNumeric)
@@ -130,11 +196,41 @@ namespace Visualization_of_Temperature_Flow
                 MessageBox.Show("Value is not Numeric.");
                 return;
             }
+            int prevsize = mesh.cellsize;
+
+            if (prevsize < size)
+            {
+                if (size % prevsize != 0)
+                {
+                    MessageBox.Show("Size is Not divisible");
+                    return;
+                }
+                int division = size / prevsize;
+                CellType tmp = mesh.targetType;
+                mesh = CopySmallToLarg(mesh, division, size);
+                mesh.targetType = tmp;
+            }
+            else
+            {
+                if ( prevsize % size  != 0)
+                {
+                    MessageBox.Show("Size is Not divisible");
+                    return;
+                }
+                int division = prevsize / size ;
+                CellType tmp = mesh.targetType;
+                mesh = CopyLargToSmall(mesh, division, size);
+                mesh.targetType = tmp;
+            }
+
             UpdateStartButton();
-            CellType tmp = mesh.targetType;
-            mesh = new Mesh(width, height, size);
-            mesh.targetType = tmp;
+           // CellType tmp = mesh.targetType;
+           // mesh = new Mesh(width, height, size);
+           // mesh.targetType = tmp;
             simpleOpenGlControl1.Refresh();
+       
+        
+        
         }
 
         private void simpleOpenGlControl1_MouseMove(object sender, MouseEventArgs e)
@@ -148,6 +244,7 @@ namespace Visualization_of_Temperature_Flow
                 mesh.ChangeCell(row, col);
                 simpleOpenGlControl1.Refresh();
             }
+
         }
 
         private void parallelCppModeRadioBtn_CheckedChanged(object sender, EventArgs e)
@@ -194,6 +291,32 @@ namespace Visualization_of_Temperature_Flow
             if (startBtn.Text == "Stop")
             {
                 StartWorker();
+            }
+        }
+
+        private void simpleOpenGlControl1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                int x = e.X, y = e.Y;
+                int row = y / mesh.cellsize, col = x / mesh.cellsize;
+                row = Math.Max(0, Math.Min(mesh.rows - 1, row));
+                col = Math.Max(0, Math.Min(mesh.cols - 1, col));
+                string msg = "Type : " + mesh.grid[row][col].type.ToString();
+                cellInfoTP.AppendText(msg);
+                cellInfoTP.AppendText(Environment.NewLine);
+                msg = "Value : " + mesh.grid[row][col].temperature.ToString();
+                cellInfoTP.AppendText(msg);
+                cellInfoTP.AppendText(Environment.NewLine);
+                msg = "Mouse Position : ";
+                cellInfoTP.AppendText(msg);
+                cellInfoTP.AppendText(Environment.NewLine);
+                msg = " X =  " + x.ToString() +",  Y =  " + y.ToString();
+                cellInfoTP.AppendText(msg);
+               
+               
+
+                cellInfoTP.Refresh();
             }
         }
     }

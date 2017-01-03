@@ -22,7 +22,7 @@ namespace Visualization_of_Temperature_Flow
         }
     }
 
-    public enum CellType { Block, HeatSource, ColdSource, NormalCell, Window };
+    public enum CellType {  NormalCell, Block, Window, ColdSource,HeatSource };
     [StructLayout(LayoutKind.Sequential)]
     public class Cell
     {

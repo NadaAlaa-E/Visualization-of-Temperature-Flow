@@ -29,8 +29,8 @@ public:
 	}
 };
 
-enum CellType  { Block, HeatSource, ColdSource, NormalCell, Window };
 
+ enum CellType {  NormalCell, Block, Window, ColdSource,HeatSource };
  struct NormColor
 {
 	double r, g, b;

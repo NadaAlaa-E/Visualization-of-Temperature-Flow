@@ -2,7 +2,6 @@ D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\bi
 D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\bin\x86\Release\Visualization of Temperature Flow.exe
 D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\bin\x86\Release\Visualization of Temperature Flow.pdb
 D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\bin\x86\Release\Color_Mapping.dll
-D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\obj\x86\Release\Visualization of Temperature Flow.csprojResolveAssemblyReference.cache
 D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\obj\x86\Release\Visualization_of_Temperature_Flow.Form1.resources
 D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\obj\x86\Release\Visualization_of_Temperature_Flow.Properties.Resources.resources
 D:\Visualization-of-Temperature-Flow-master\Visualization of Temperature Flow\obj\x86\Release\Visualization of Temperature Flow.csproj.GenerateResource.Cache

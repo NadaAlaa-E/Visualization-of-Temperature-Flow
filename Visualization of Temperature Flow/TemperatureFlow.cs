@@ -75,6 +75,7 @@ namespace Visualization_of_Temperature_Flow
                     current = (IntPtr)((long)current + Marshal.SizeOf(grid[i][j]));
                 }
             }
+            int k = Wrap.subtract(8, 5);
             IntPtr ptr = Wrap.CalculateFlow_ParallelMode_Cplus(result, N, M, num_threads);
 
             Cell[][] Finalgrid = new Cell[N][];

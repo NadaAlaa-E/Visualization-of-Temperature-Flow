@@ -9,7 +9,7 @@ namespace Visualization_of_Temperature_Flow
 {
     public class Mesh
     {
-        Cell[][] grid;
+       public Cell[][] grid;
         public int cellsize;
         public CellType targetType;
         public int rows, cols;
